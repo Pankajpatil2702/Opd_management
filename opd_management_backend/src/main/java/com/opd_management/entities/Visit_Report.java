@@ -1,0 +1,117 @@
+package com.opd_management.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "visit_reports")
+public class Visit_Report {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String file_name;
+	private String file_url;
+	private String file_type;
+	private String created_at;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "visitid")
+	@JsonIgnoreProperties(value = {"visitid"}, allowSetters = true)
+	private Visit visitid;
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getFile_name() {
+		return file_name;
+	}
+
+
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
+	}
+
+
+	public String getFile_url() {
+		return file_url;
+	}
+
+
+	public void setFile_url(String file_url) {
+		this.file_url = file_url;
+	}
+
+
+	public String getFile_type() {
+		return file_type;
+	}
+
+
+	public void setFile_type(String file_type) {
+		this.file_type = file_type;
+	}
+
+
+	public String getCreated_at() {
+		return created_at;
+	}
+
+
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
+
+
+	public Visit getVisitid() {
+		return visitid;
+	}
+
+
+	public void setVisitid(Visit visitid) {
+		this.visitid = visitid;
+	}
+
+
+	public Visit_Report(int id, String file_name, String file_url, String file_type, String created_at, Visit visitid) {
+		super();
+		this.id = id;
+		this.file_name = file_name;
+		this.file_url = file_url;
+		this.file_type = file_type;
+		this.created_at = created_at;
+		this.visitid = visitid;
+	}
+
+
+	public Visit_Report() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	@Override
+	public String toString() {
+		return "Visit_Report [id=" + id + ", file_name=" + file_name + ", file_url=" + file_url + ", file_type="
+				+ file_type + ", created_at=" + created_at + ", visitid=" + visitid + "]";
+	}
+	
+	
+
+}

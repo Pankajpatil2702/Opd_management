@@ -110,7 +110,7 @@ public class DiagnosticController {
 	
 	//Delete Specific Id From Diagnostic Table
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Diagnostic> deleteSpecificIdFromTable(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteSpecificIdFromTable(@PathVariable("id") int id){
 		
 		Diagnostic diagnostic = diagnosticService.getDiagnosticById(id);
 		if(diagnostic == null) {

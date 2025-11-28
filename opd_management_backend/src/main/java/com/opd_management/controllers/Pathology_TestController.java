@@ -112,7 +112,7 @@ public class Pathology_TestController {
 	
 	
 	// delete specific id from pathology_test 
-	public ResponseEntity<Pathology_Test> deleteSpecificIdFromPathology_Test(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteSpecificIdFromPathology_Test(@PathVariable("id") int id){
 		
 		Pathology_Test pathology_Test = pathology_TestService.getPathologyById(id);
 		if(pathology_Test == null) {

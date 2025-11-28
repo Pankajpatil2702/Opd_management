@@ -103,7 +103,7 @@ public class MedicineController {
 	
 	// delete specific id from medicine 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Medicine>  deleteIdFromMedicine(@PathVariable("id") int id){
+	public ResponseEntity<Void>  deleteIdFromMedicine(@PathVariable("id") int id){
 		
 		Medicine medicine = medicineService.getMedicineById(id);
 		

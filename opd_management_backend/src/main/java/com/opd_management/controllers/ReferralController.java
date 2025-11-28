@@ -140,7 +140,7 @@ public class ReferralController {
 	
 	// delete specific id from referral table
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Referral> deleteReferralIdFromTable(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteReferralIdFromTable(@PathVariable("id") int id){
 		
 		Referral referral = referralService.getReferralById(id);
 		

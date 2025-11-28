@@ -104,7 +104,7 @@ public class Referral_CenterController {
 	
 	// delete specific id from referral_Center
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Referral_Center> deleteSpecificIdFromReferral_Center(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteSpecificIdFromReferral_Center(@PathVariable("id") int id){
 		
 		Referral_Center referral_Center= referral_CenterService.getReferral_CenterById(id);
 		if(referral_Center == null) {

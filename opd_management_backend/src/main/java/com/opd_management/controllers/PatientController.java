@@ -118,7 +118,7 @@ public class PatientController {
 	
 	// Delete Specific Id From Patient Table
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Patient> deletePatientDataUsingId(@PathVariable("id") int id){
+	public ResponseEntity<Void> deletePatientDataUsingId(@PathVariable("id") int id){
 		
 		Patient patient = patientService.getPatientById(id);
 		if(patient == null) {

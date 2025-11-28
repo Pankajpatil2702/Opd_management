@@ -178,7 +178,7 @@ public class VisitController {
 	
 	// Delete Specific Visit Id From Table
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Visit> deleteSpecificVisitId(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteSpecificVisitId(@PathVariable("id") int id){
 		
 		Visit visit = visitService.getVisitByID(id);
 		

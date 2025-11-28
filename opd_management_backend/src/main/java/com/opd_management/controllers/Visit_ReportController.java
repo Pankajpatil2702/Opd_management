@@ -27,6 +27,7 @@ public class Visit_ReportController {
 	@Autowired
 	private Visit_ReportService visit_ReportService;
 	
+	// added
 	@Autowired
 	private VisitService visitService;
 	
@@ -105,7 +106,7 @@ public class Visit_ReportController {
 	
 	// delete specific id from visit_report table
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Visit_Report> deleteSpecificIdFromVisit_Report(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteSpecificIdFromVisit_Report(@PathVariable("id") int id){
 		
 		Visit_Report visit_Report = visit_ReportService.getVisit_ReportById(id);
 		if(visit_Report == null) {

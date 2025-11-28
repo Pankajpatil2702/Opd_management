@@ -105,7 +105,7 @@ public class Tests_MasterController {
 	
 	// delete specific id from tests_master
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Tests_Master> deleteTests_MasterData(@PathVariable("id") int id){
+	public ResponseEntity<Void> deleteTests_MasterData(@PathVariable("id") int id){
 		
 		Tests_Master tests_Master = tests_MasterService.getTests_MasterById(id);
 		

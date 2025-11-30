@@ -2,7 +2,7 @@ package com.opd_management.dtos;
 
 import java.math.BigDecimal;
 
-// FrontEnd Data Temporary Store    // To Get Value/Data 
+// FrontEnd Data Temporary Store    
 public class BillDto {
 	
 	private BigDecimal consultation_fee;

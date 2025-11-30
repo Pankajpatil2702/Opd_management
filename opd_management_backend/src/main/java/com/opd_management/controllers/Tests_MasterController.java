@@ -41,6 +41,8 @@ public class Tests_MasterController {
 		tests_Master.setNormal_range(tests_MasterDto.getNormal_range());
 		tests_Master.setUnit(tests_MasterDto.getUnit());
 		
+		
+		// to get doctor id for show data
 		Doctor doctor = doctorService.getDoctorById(tests_MasterDto.getDoctorid());
 		
 		tests_Master.setDoctorid(doctor);
@@ -94,6 +96,7 @@ public class Tests_MasterController {
 		tests_Master.setNormal_range(tests_MasterDto.getNormal_range());
 		tests_Master.setUnit(tests_MasterDto.getUnit());
 		
+		// to get doctor id for show data
 		Doctor doctor = doctorService.getDoctorById(tests_MasterDto.getDoctorid());
 		
 		tests_Master.setDoctorid(doctor);

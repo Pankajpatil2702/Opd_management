@@ -34,16 +34,16 @@ public class ReferralController {
 	private ReferralService referralService;
 	
 	@Autowired
-	private VisitService visitService;
+	private VisitService visitService;  // to get id
 	
 	@Autowired
-	private PatientService patientService;
+	private PatientService patientService; // to get id
 	
 	@Autowired
-	private DoctorService doctorService;
+	private DoctorService doctorService;   // to get id
 	
 	@Autowired
-	private Referral_CenterService referral_CenterService;
+	private Referral_CenterService referral_CenterService; 	// to get id
 	
 	
 	// insert data into referral table

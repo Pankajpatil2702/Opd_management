@@ -28,7 +28,7 @@ public class Referral_CenterController {
 	private Referral_CenterService referral_CenterService;
 	
 	@Autowired
-	private DoctorService doctorService;
+	private DoctorService doctorService;  // to get id
 	
 	// insert data from referral_center 
 	@PostMapping("/")
@@ -42,6 +42,7 @@ public class Referral_CenterController {
 		referral_Center.setAddress(referral_CenterDto.getAddress());
 		referral_Center.setCreated_at(referral_CenterDto.getCreated_at());
 		
+		// to get doctor id show data from id
 		Doctor doctor = doctorService.getDoctorById(referral_CenterDto.getDoctorid());
 		
 		referral_Center.setDoctorid(doctor);
@@ -93,6 +94,7 @@ public class Referral_CenterController {
 		referral_Center.setAddress(referral_CenterDto.getAddress());
 		referral_Center.setCreated_at(referral_CenterDto.getCreated_at());
 		
+		// to get doctor id show data from id
 		Doctor doctor = doctorService.getDoctorById(referral_CenterDto.getDoctorid());
 		
 		referral_Center.setDoctorid(doctor);

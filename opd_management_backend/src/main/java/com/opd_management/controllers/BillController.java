@@ -45,6 +45,7 @@ public class BillController {
 		bill.setPending_amount(billDto.getPending_amount());
 		bill.setCreated_at(billDto.getCreated_at());
 		
+		// To Visit By id data or show all info
 		Visit visit = visitService.getVisitByID(billDto.getVisitid());
 		
 		bill.setVisitid(visit);
@@ -103,6 +104,8 @@ public class BillController {
 		bill.setPending_amount(billDto.getPending_amount());
 		bill.setCreated_at(billDto.getCreated_at());
 		
+		// To Visit By id data or show all info
+ 
 		Visit visit = visitService.getVisitByID(billDto.getVisitid());
 		
 		bill.setVisitid(visit);

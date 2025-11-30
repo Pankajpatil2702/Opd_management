@@ -1,6 +1,6 @@
 package com.opd_management.dtos;
 
-// frontend data temporary store
+//FrontEnd Data Temporary Store   
 public class DoctorDto {
 	private String name;
 	private String email;

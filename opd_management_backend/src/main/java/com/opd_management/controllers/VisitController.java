@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.opd_management.dtos.PatientDto;
 import com.opd_management.dtos.VisitDto;
 import com.opd_management.entities.Doctor;
 import com.opd_management.entities.Patient;
@@ -159,8 +157,7 @@ public class VisitController {
 		visit.setCreated_at(visitDto.getCreated_at());
 		visit.setUpdates_at(visitDto.getUpdates_at());
 		
-		//visit.setPatientid(visitDto.getPatientid());
-		
+		// to get patient id for show data
 		Patient patient = patientService.getPatientById(visitDto.getDoctorid());
 		
 		Doctor doctor = doctorService.getDoctorById(visitDto.getDoctorid());

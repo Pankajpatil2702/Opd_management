@@ -6,7 +6,7 @@ import com.opd_management.entities.Medicine;
 
 public interface MedicineService {
 
-	// insert Data into medicine
+	// to save/insert Data into medicine
 	Medicine saveMedicine(Medicine medicine);
 	
 	// get all medicine records

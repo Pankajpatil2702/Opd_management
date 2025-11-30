@@ -43,6 +43,7 @@ public class Visit_ReportController {
 		visit_Report.setFile_type(visit_ReportDto.getFile_type());
 		visit_Report.setCreated_at(visit_ReportDto.getCreated_at());
 		
+		// to get visit id for show data
 		Visit visit = visitService.getVisitByID(visit_ReportDto.getVisitid());
 		
 		visit_Report.setVisitid(visit);
@@ -94,6 +95,7 @@ public class Visit_ReportController {
 		visit_Report.setFile_type(visit_ReportDto.getFile_type());
 		visit_Report.setCreated_at(visit_ReportDto.getCreated_at());
 		
+		// to get visit id for show data
 		Visit visit = visitService.getVisitByID(visit_ReportDto.getVisitid());
 		
 		visit_Report.setVisitid(visit);

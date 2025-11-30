@@ -6,12 +6,16 @@ import com.opd_management.entities.Visit;
 
 public interface VisitService {
 	
+	// save/insert data into visit
 	Visit saveVisit(Visit visit);
 	
+	// get all data from visit
 	List<Visit> getAllVisit();
 	
+	// get specific data using id from visit
 	Visit getVisitByID(int id);
 	
+	// delete specific data using id from visit
 	void deleteVisiteId(int id);
 
 }

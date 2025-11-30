@@ -2,10 +2,8 @@ package com.opd_management.controllers;
 
 import java.util.List;
 
-import org.apache.tomcat.util.Diagnostics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,8 +44,10 @@ public class DiagnosticController {
 		diagnostic.setName(diagnosticDto.getName());
 		diagnostic.setCreated_at(diagnosticDto.getCreated_at());
 		
+		// to get visit id or show info  
 		Visit visit =visitService.getVisitByID(diagnosticDto.getVisitid());
 		
+		// to get doctor id or show info
 		Doctor doctor = doctorService.getDoctorById(diagnosticDto.getDoctorid());
 		
 		diagnostic.setDoctorid(doctor);
@@ -95,8 +95,10 @@ public class DiagnosticController {
 		diagnostic.setName(diagnosticDto.getName());
 		diagnostic.setCreated_at(diagnosticDto.getCreated_at());
 		
+		// to get visit id or show info
 		Visit visit = visitService.getVisitByID(diagnosticDto.getVisitid());
 				
+		// to get doctor id or show info
 		Doctor doctor = doctorService.getDoctorById(diagnosticDto.getDoctorid());
 		
 		diagnostic.setDoctorid(doctor);

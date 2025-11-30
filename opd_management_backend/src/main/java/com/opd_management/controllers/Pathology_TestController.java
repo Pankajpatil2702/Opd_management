@@ -2,7 +2,6 @@ package com.opd_management.controllers;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,16 +25,15 @@ import com.opd_management.services.VisitService;
 @RequestMapping("/pathologytest")
 public class Pathology_TestController {
 	
-	private static final HttpStatus ResponseEntity = null;
 
 	@Autowired
 	private Pathology_TestService pathology_TestService;
 	
 	@Autowired
-	private VisitService visitService;
+	private VisitService visitService;    // to get id
 	
 	@Autowired
-	private Tests_MasterService tests_MasterService;
+	private Tests_MasterService tests_MasterService;  // to get id
 	
 	// insert data into pathology_test table
 	@PostMapping("/")
@@ -48,9 +46,13 @@ public class Pathology_TestController {
 		pathology_Test.setReport_file(pathology_TestDto.getReport_file());
 		pathology_Test.setCreated_at(pathology_TestDto.getCreated_at());
 		
+		
+		// to get visit id show data 
 		Visit visit = visitService.getVisitByID(pathology_TestDto.getVisitid());
 		pathology_Test.setVisitid(visit);
 		
+		
+		// to get tests_master id or show data 
 		Tests_Master tests_Master = tests_MasterService.getTests_MasterById(pathology_TestDto.getTestMasterid());
 		pathology_Test.setTestMasterid(tests_Master);
 		
@@ -99,9 +101,11 @@ public class Pathology_TestController {
 		pathology_Test.setReport_file(pathology_TestDto.getReport_file());
 		pathology_Test.setCreated_at(pathology_TestDto.getCreated_at());
 		
+		// to get visit id show data 
 		Visit visit = visitService.getVisitByID(pathology_TestDto.getVisitid());
 		pathology_Test.setVisitid(visit);
 		
+		// to get tests_master id or show data 
 		Tests_Master tests_Master = tests_MasterService.getTests_MasterById(pathology_TestDto.getTestMasterid());
 		pathology_Test.setTestMasterid(tests_Master);
 		

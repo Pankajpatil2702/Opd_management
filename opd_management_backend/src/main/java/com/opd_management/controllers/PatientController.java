@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +28,7 @@ public class PatientController {
 	private PatientService patientService;
 	
 	@Autowired
-	private DoctorService doctorService;
+	private DoctorService doctorService;  // to get id
 	
 	
 	// Get All Data From Patient Table
@@ -63,6 +62,8 @@ public class PatientController {
 		patient.setTobacco(patientDto.getTobacco());
 		patient.setCreated_at(patientDto.getCreated_at());
 		
+		
+		// to get doctor id
 		Doctor doctor= doctorService.getDoctorById(patientDto.getDoctorid());  // This is Used For Get All Data/id From Doctor Table
 		
 		patient.setDoctorid(doctor);
@@ -104,8 +105,8 @@ public class PatientController {
 		patient.setTobacco(patientDto.getTobacco());
 		patient.setCreated_at(patientDto.getCreated_at());
 		
-		// patient.setDoctorid(patientDto.getDoctorid());
 		
+		// to get doctor id
 		Doctor doctor = doctorService.getDoctorById(patientDto.getDoctorid()); 
 		
 		patient.setDoctorid(doctor);

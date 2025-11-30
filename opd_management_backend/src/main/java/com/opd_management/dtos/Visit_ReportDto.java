@@ -1,5 +1,6 @@
 package com.opd_management.dtos;
 
+//FrontEnd Data Temporary Store   
 public class Visit_ReportDto {
 	
 	private String file_name;

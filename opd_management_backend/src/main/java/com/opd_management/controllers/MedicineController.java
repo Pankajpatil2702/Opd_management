@@ -40,6 +40,7 @@ public class MedicineController {
 		medicine.setMedicine_name(medicineDto.getMedicine_name());
 		medicine.setType(medicineDto.getType());
 		
+		// to get doctor id or show info
 		Doctor doctor = doctorService.getDoctorById(medicineDto.getDoctorid());
 		
 		medicine.setDoctorid(doctor);
@@ -91,6 +92,8 @@ public class MedicineController {
 		medicine.setMedicine_name(medicineDto.getMedicine_name());
 		medicine.setType(medicineDto.getType());
 		
+		
+		// to get doctor id or show info
 		Doctor doctor = doctorService.getDoctorById(medicineDto.getDoctorid());
 		
 		medicine.setDoctorid(doctor);

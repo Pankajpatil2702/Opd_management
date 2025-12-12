@@ -6,6 +6,7 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 
 // FrontEnd Data Temporary Store    
 public class BillDto {
@@ -47,6 +48,8 @@ public class BillDto {
 	@NotBlank(message = "Created date is required")
 	private String created_at;
 	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int visitid;
 
 	public BigDecimal getConsultation_fee() {

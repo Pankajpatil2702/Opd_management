@@ -79,7 +79,7 @@ public class PatientController {
 	// Get Specific Data From Patient Table Using "id"
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Patient> getPatientDataByid(@PathVariable("id") int id, @RequestBody PatientDto patientDto){
+	public ResponseEntity<Patient> getPatientDataByid(@PathVariable("id") int id){
 		
 		Patient patient= patientService.getPatientById(id);
 		
@@ -91,7 +91,7 @@ public class PatientController {
 	
 	// Update Specific Data From Patient Table Using "id"
 	@PutMapping("/{id}")
-	public ResponseEntity<Patient> updatePatientData(@PathVariable("id") int id, @RequestBody PatientDto patientDto){
+	public ResponseEntity<Patient> updatePatientData(@PathVariable("id") int id,@Valid  @RequestBody PatientDto patientDto){
 		
 		Patient patient = patientService.getPatientById(id);
 		

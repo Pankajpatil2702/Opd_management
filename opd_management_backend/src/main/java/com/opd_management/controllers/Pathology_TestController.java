@@ -21,6 +21,8 @@ import com.opd_management.services.Pathology_TestService;
 import com.opd_management.services.Tests_MasterService;
 import com.opd_management.services.VisitService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/pathologytest")
 public class Pathology_TestController {
@@ -37,7 +39,7 @@ public class Pathology_TestController {
 	
 	// insert data into pathology_test table
 	@PostMapping("/")
-	public ResponseEntity<Pathology_Test> savePathology_TestEntity(@RequestBody Pathology_TestDto pathology_TestDto){
+	public ResponseEntity<Pathology_Test> savePathology_TestEntity(@Valid @RequestBody Pathology_TestDto pathology_TestDto){
 		
 		Pathology_Test pathology_Test = new Pathology_Test();
 		
@@ -88,7 +90,7 @@ public class Pathology_TestController {
 	
 	// update data from pathology_Test using id
 	@PutMapping("/{id}")
-	public ResponseEntity<Pathology_Test> updateDataFromPathology_Test(@PathVariable("id") int id, @RequestBody Pathology_TestDto pathology_TestDto){
+	public ResponseEntity<Pathology_Test> updateDataFromPathology_Test(@PathVariable("id") int id,@Valid  @RequestBody Pathology_TestDto pathology_TestDto){
 		
 		Pathology_Test pathology_Test = pathology_TestService.getPathologyById(id);
 		if(pathology_Test == null) {

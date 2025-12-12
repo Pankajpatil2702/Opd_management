@@ -26,6 +26,8 @@ import com.opd_management.services.ReferralService;
 import com.opd_management.services.Referral_CenterService;
 import com.opd_management.services.VisitService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/referral")
 public class ReferralController {
@@ -48,7 +50,7 @@ public class ReferralController {
 	
 	// insert data into referral table
 	@PostMapping("/")
-	public ResponseEntity<Referral> saveReferralEntity(@RequestBody ReferralDto referralDto){
+	public ResponseEntity<Referral> saveReferralEntity(@Valid @RequestBody ReferralDto referralDto){
 		
 		 Referral referral = new Referral();
 		 
@@ -107,7 +109,7 @@ public class ReferralController {
 	
 	// update specific data using data from referral table
 	@PutMapping("/{id}")
-	public ResponseEntity<Referral> updateDataFromReferralById(@PathVariable("id") int id, @RequestBody ReferralDto referralDto){
+	public ResponseEntity<Referral> updateDataFromReferralById(@PathVariable("id") int id,@Valid  @RequestBody ReferralDto referralDto){
 		
 		Referral referral = referralService.getReferralById(id);
 		if(referral == null) {

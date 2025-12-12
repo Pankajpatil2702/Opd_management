@@ -21,6 +21,8 @@ import com.opd_management.services.DoctorService;
 import com.opd_management.services.PatientService;
 import com.opd_management.services.VisitService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/visit")
 public class VisitController {
@@ -42,7 +44,7 @@ public class VisitController {
 	
 	// Insert Data Into Visit Table ..
 	@PostMapping("/")
-	public ResponseEntity<Visit> saveVisitEntity(@RequestBody VisitDto visitDto){
+	public ResponseEntity<Visit> saveVisitEntity(@Valid @RequestBody VisitDto visitDto){
 		
 		Visit visit = new Visit();
 		
@@ -122,7 +124,7 @@ public class VisitController {
 	
 	// update Specific Visit id From Table 
 	@PutMapping("/{id}")
-	public ResponseEntity<Visit>  upateVisitId(@PathVariable("id") int id,  @RequestBody VisitDto visitDto){
+	public ResponseEntity<Visit>  upateVisitId(@PathVariable("id") int id, @Valid  @RequestBody VisitDto visitDto){
 		
 		Visit visit = visitService.getVisitByID(id);
 		

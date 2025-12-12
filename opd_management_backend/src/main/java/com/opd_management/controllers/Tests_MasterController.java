@@ -20,6 +20,8 @@ import com.opd_management.entities.Tests_Master;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.Tests_MasterService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/tests_master")
 public class Tests_MasterController {
@@ -33,7 +35,7 @@ public class Tests_MasterController {
 	
 	// insert data into tests_master entity
 	@PostMapping("/")
-	public ResponseEntity<Tests_Master> saveTests_MasterEntity(@RequestBody Tests_MasterDto tests_MasterDto){
+	public ResponseEntity<Tests_Master> saveTests_MasterEntity(@Valid @RequestBody Tests_MasterDto tests_MasterDto){
 		
 		Tests_Master tests_Master = new Tests_Master();
 		
@@ -83,7 +85,7 @@ public class Tests_MasterController {
 	
 	// update specific data from Tests_Master
 	@PutMapping("/{id}")
-	public ResponseEntity<Tests_Master> updataSpecificTests_MasterData(@PathVariable("id") int id, @RequestBody Tests_MasterDto tests_MasterDto){
+	public ResponseEntity<Tests_Master> updataSpecificTests_MasterData(@PathVariable("id") int id, @Valid @RequestBody Tests_MasterDto tests_MasterDto){
 		
 		Tests_Master tests_Master = tests_MasterService.getTests_MasterById(id);
 		

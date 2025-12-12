@@ -22,6 +22,8 @@ import com.opd_management.services.DiagnosticService;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.VisitService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/diagnostic")
 public class DiagnosticController {
@@ -38,7 +40,7 @@ public class DiagnosticController {
 	
 	// insert Data Into Diagnostic Table
 	@PostMapping("/")
-	public ResponseEntity<Diagnostic> saveDiagnosticEntity(@RequestBody DiagnosticDto diagnosticDto){
+	public ResponseEntity<Diagnostic> saveDiagnosticEntity(@Valid @RequestBody DiagnosticDto diagnosticDto){
 		
 		Diagnostic diagnostic = new Diagnostic();
 		diagnostic.setName(diagnosticDto.getName());
@@ -85,7 +87,7 @@ public class DiagnosticController {
 	
 	// Update Specific Data From Diagnostic Table
 	@PutMapping("/{id}")
-	public ResponseEntity<Diagnostic> updateDiagnosticDataFromTable(@PathVariable("id") int id, @RequestBody DiagnosticDto diagnosticDto){
+	public ResponseEntity<Diagnostic> updateDiagnosticDataFromTable(@PathVariable("id") int id,@Valid  @RequestBody DiagnosticDto diagnosticDto){
 		
 		Diagnostic diagnostic = diagnosticService.getDiagnosticById(id);
 		if(diagnostic == null) {

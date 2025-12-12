@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 
 //FrontEnd Data Temporary Store   
 public class VisitDto {
@@ -101,9 +102,12 @@ public class VisitDto {
 	private String updates_at;
 	
 	
-	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int patientid;  // IMP
 	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int doctorid;   // IMP
 
 	public String getVisit_date() {

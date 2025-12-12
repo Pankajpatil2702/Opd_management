@@ -20,6 +20,8 @@ import com.opd_management.entities.Visit_Report;
 import com.opd_management.services.VisitService;
 import com.opd_management.services.Visit_ReportService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/visitreport")
 public class Visit_ReportController {
@@ -34,7 +36,7 @@ public class Visit_ReportController {
 	
 	// insert data into visit_report table
 	@PostMapping("/")
-	public ResponseEntity<Visit_Report> saveVisit_ReportEntity(@RequestBody Visit_ReportDto visit_ReportDto){
+	public ResponseEntity<Visit_Report> saveVisit_ReportEntity(@Valid @RequestBody Visit_ReportDto visit_ReportDto){
 		
 		Visit_Report visit_Report  = new Visit_Report();
 		
@@ -82,7 +84,7 @@ public class Visit_ReportController {
 	
 	// update specific id from visit_report table
 	@PutMapping("/{id}")
-	public ResponseEntity<Visit_Report> upateSpecificDataFromVisit_ReportUsingId(@PathVariable("id") int id, @RequestBody Visit_ReportDto visit_ReportDto){
+	public ResponseEntity<Visit_Report> upateSpecificDataFromVisit_ReportUsingId(@PathVariable("id") int id,@Valid  @RequestBody Visit_ReportDto visit_ReportDto){
 		
 		Visit_Report visit_Report = visit_ReportService.getVisit_ReportById(id);
 		if(visit_Report == null) {

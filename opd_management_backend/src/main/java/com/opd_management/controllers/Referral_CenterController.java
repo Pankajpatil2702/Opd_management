@@ -20,6 +20,8 @@ import com.opd_management.entities.Referral_Center;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.Referral_CenterService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/referral_center")
 public class Referral_CenterController {
@@ -32,7 +34,7 @@ public class Referral_CenterController {
 	
 	// insert data from referral_center 
 	@PostMapping("/")
-	public ResponseEntity<Referral_Center> saveReferral_CenterEntity(@RequestBody Referral_CenterDto referral_CenterDto){
+	public ResponseEntity<Referral_Center> saveReferral_CenterEntity(@Valid @RequestBody Referral_CenterDto referral_CenterDto){
 		
 		Referral_Center referral_Center = new Referral_Center();
 		
@@ -80,7 +82,7 @@ public class Referral_CenterController {
 	
 	// update specific id from referral_center
 	@PutMapping("/{id}")
-	public ResponseEntity<Referral_Center> updateReferral_CenterId(@PathVariable("id") int id, @RequestBody Referral_CenterDto referral_CenterDto){
+	public ResponseEntity<Referral_Center> updateReferral_CenterId(@PathVariable("id") int id,@Valid  @RequestBody Referral_CenterDto referral_CenterDto){
 		
 		Referral_Center referral_Center= referral_CenterService.getReferral_CenterById(id);
 		if(referral_Center == null) {

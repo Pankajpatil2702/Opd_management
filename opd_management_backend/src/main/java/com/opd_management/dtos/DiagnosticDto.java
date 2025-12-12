@@ -1,6 +1,8 @@
 package com.opd_management.dtos;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 //FrontEnd Data Temporary Store   
 public class DiagnosticDto {
@@ -11,8 +13,14 @@ public class DiagnosticDto {
 	@NotBlank(message = "Date is required")
 	private String created_at;
 	
+	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int doctorid;
 	
+	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int visitid;
 	
 	public String getName() {

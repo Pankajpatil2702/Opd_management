@@ -53,6 +53,7 @@ public class PatientDto {
 	
 	
 	// Create Doctor id Separate
+	@NotNull(message = "Id must be required")
 	@Positive(message = "ID must be positive")
 	private int doctorid;
 		

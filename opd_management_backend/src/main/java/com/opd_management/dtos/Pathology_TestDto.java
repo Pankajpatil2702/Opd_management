@@ -15,7 +15,7 @@ public class Pathology_TestDto {
 	@Size(max = 500, message = "Remarks cannot exceed 500 characters")
 	private String remarks;
 	
-	// 
+	@NotBlank(message = "report file path is required")
 	private String report_file;
 	
 	@NotBlank(message = "Created date is required")
@@ -25,6 +25,8 @@ public class Pathology_TestDto {
 	@Positive(message = "ID must be positive")
 	private int visitid;
 	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int testMasterid;
 
 	public String getResult() {

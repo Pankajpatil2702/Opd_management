@@ -17,6 +17,8 @@ import com.opd_management.dtos.DoctorDto;
 import com.opd_management.entities.Doctor;
 import com.opd_management.services.DoctorService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/doctor")
 public class DoctorController {
@@ -26,7 +28,7 @@ public class DoctorController {
 
 	
 	@PostMapping("/")
-	public ResponseEntity<Doctor> saveDoctorEntity(@RequestBody DoctorDto doctorDto){
+	public ResponseEntity<Doctor> saveDoctorEntity(@Valid @RequestBody DoctorDto doctorDto){
 		
 			
 			Doctor doctor= new Doctor();
@@ -80,7 +82,7 @@ public class DoctorController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Doctor> updateDoctor(@PathVariable("id") int id, @RequestBody DoctorDto doctorDto){
+	public ResponseEntity<Doctor> updateDoctor(@PathVariable("id") int id,@Valid  @RequestBody DoctorDto doctorDto){
 		
 		Doctor doctor = doctorService.getDoctorById(id);
 		

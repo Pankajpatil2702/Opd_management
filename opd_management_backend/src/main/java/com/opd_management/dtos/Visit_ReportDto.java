@@ -1,13 +1,32 @@
 package com.opd_management.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+
 //FrontEnd Data Temporary Store   
 public class Visit_ReportDto {
 	
-	private String file_name;
-	private String file_url;
-	private String file_type;
-	private String created_at;
-	
+	@NotBlank(message = "File name is required")
+    private String file_name;
+
+    @NotBlank(message = "File URL is required")
+    private String file_url;
+
+    @NotBlank(message = "File type is required")
+    private String file_type;
+
+    @NotBlank(message = "Created date is required")
+    // Format: 2025-12-11 OR 2025/12/11
+    @Pattern(
+        regexp = "^\\d{4}[-/]\\d{2}[-/]\\d{2}$",
+        message = "Date must be in format YYYY-MM-DD"
+    )
+    private String created_at;	
+    
+    @NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int visitid;
 
 	public String getFile_name() {

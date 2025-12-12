@@ -20,6 +20,8 @@ import com.opd_management.entities.Reception;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.ReceptionService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/reception")
 public class ReceptionController {
@@ -31,7 +33,7 @@ public class ReceptionController {
 	private DoctorService doctorService;
 	
 	@PostMapping("/")
-	public ResponseEntity<Reception> saveDataFromReception(@RequestBody ReceptionDto receptionDto){
+	public ResponseEntity<Reception> saveDataFromReception(@Valid @RequestBody ReceptionDto receptionDto){
 		
 		Reception reception = new Reception();
 		
@@ -76,7 +78,7 @@ public class ReceptionController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Reception> updateReceptionTableUsingId(@PathVariable("id") int id,@RequestBody ReceptionDto receptionDto){
+	public ResponseEntity<Reception> updateReceptionTableUsingId(@PathVariable("id") int id,@Valid @RequestBody ReceptionDto receptionDto){
 		
 		Reception reception = receptionService.getReceptionById(id);
 		if(reception == null) {

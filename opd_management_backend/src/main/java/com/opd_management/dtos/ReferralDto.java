@@ -1,6 +1,8 @@
 package com.opd_management.dtos;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 //FrontEnd Data Temporary Store   
@@ -19,13 +21,20 @@ public class ReferralDto {
 	@NotBlank(message = "Created date is required")
 	private String created_at;
 	
-	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int visitid;
 	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int patientid;
 	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int doctorid;
 	
+	@NotNull(message = "Id must be required")
+	@Positive(message = "ID must be positive")
 	private int referralCenterid;
 
 	public String getNote_type() {

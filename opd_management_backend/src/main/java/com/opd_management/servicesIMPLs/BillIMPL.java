@@ -37,6 +37,8 @@ public class BillIMPL implements BillService {
 	public void deleteBillId(int id) {
 		// TODO Auto-generated method stub
 		billRepository.deleteById(id);
+		
+		
 	}
 
 }

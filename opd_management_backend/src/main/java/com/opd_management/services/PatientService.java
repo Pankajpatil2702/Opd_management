@@ -17,5 +17,8 @@ public interface PatientService {
 	
 	// delete specific data using id from patient
 	void deletePatient(int id);
+	
+	// get patient list accroding to doctor id
+	List<Patient> getPatientByDoctorid(int doctorid);
 
 }

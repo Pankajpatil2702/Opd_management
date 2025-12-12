@@ -1,12 +1,24 @@
 package com.opd_management.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 //FrontEnd Data Temporary Store   
 public class ReferralDto {
 
+	@NotBlank(message = "Note type is required")
 	private String note_type;
+	
+	@NotBlank(message = "Reason is required")
 	private String reason;
+	
+	@NotBlank(message = "Details are required")
+    @Size(max = 500, message = "Details cannot exceed 500 characters")
 	private String detalis;
+	
+	@NotBlank(message = "Created date is required")
 	private String created_at;
+	
 	
 	private int visitid;
 	

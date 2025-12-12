@@ -1,13 +1,31 @@
 package com.opd_management.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+
 //FrontEnd Data Temporary Store   
 public class Referral_CenterDto {
 	
+	@NotBlank(message = "Name is required")
 	private String name;
+	
+	@NotBlank(message = "Type is required")
+	@Pattern(
+	    regexp = "^[A-Za-z ]+$",
+	    message = "Type must contain only letters"
+	)
 	private String type;
+	
+	@NotBlank(message = "Contact info is required")
 	private String contact_info;
+	
+	@NotBlank(message = "Address is required")
 	private String address;
+	
+	@NotBlank(message = "Created date is required")
 	private String created_at;
+	
+	
 	
 	private int doctorid;
 

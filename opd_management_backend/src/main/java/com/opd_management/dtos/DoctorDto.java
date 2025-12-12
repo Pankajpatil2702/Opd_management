@@ -1,17 +1,47 @@
-package com.opd_management.dtos;
+   package com.opd_management.dtos;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 //FrontEnd Data Temporary Store   
 public class DoctorDto {
+	
+	@NotBlank(message = "Name is required")
 	private String name;
+	
+	@NotBlank(message = "Email is required")
+	@Email(message = "Email must be valid")
 	private String email;
+	
+	@NotBlank(message = "Password is required")
+	@Size(min = 6,  message = "Password must be at least 6 characters")
 	private String password;
+	
+	@NotBlank(message = "Specialization is required")
 	private String specialization;
+	
+	@NotBlank(message = "Clinic name is required")
 	private String clinic_name;
+	
+	@NotBlank(message = "Address is required")
 	private String address;
+	
+	@NotBlank(message = "Mobile number is required")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Mobile number must be 10 digits")
 	private String mobileNo;
-	private String token;
+	
+	
+	private String token; // optional field
+	
+	@NotBlank(message = "Status is required")
 	private String status;
+	
+	@NotBlank(message = "Created date is required")
 	private String created_at;
+	
+	@NotBlank(message = "Updated date is required")
 	private String updated_at;
 
 	

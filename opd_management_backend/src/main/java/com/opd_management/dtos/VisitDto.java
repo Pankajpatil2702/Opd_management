@@ -1,38 +1,106 @@
 package com.opd_management.dtos;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 //FrontEnd Data Temporary Store   
 public class VisitDto {
 	
+	@NotBlank(message = "Visit date is requires")
 	private String visit_date;
+	
+	@NotBlank(message = "Complaints field is required")
 	private String complaints;
+	
+	@NotBlank(message = "Diagnosis is required")
 	private String diagnosis;
+	
+	@NotBlank(message = "Advice is required")
 	private String advice;
+	
+	// BP format example: 120/80
+    @Pattern(regexp = "^[0-9]{2,3}/[0-9]{2,3}$", message = "BP must be in valid format (e.g., 120/80)")
 	private String bp;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String pulse;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String saturation;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String temperature;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String respiration;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String sugar;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String fasting_sugar;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String pp_sugar;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String random_sugar;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String urea_creatinine;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String past_history;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String current_medication;
+    
+    @Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String additional_notes;
+	
+	@NotNull(message = "Weight is required")
+    @Min(value = 1, message = "Weight must be greater than 0")
 	private int weight;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String edema;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String pallor;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String jaundice;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String cvs;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String rs;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String pa;
-	private String  cns;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
+	private String cns;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String hb;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String ecg;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String followup_date;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String created_at;
+	
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String updates_at;
+	
+	
 	
 	private int patientid;  // IMP
 	

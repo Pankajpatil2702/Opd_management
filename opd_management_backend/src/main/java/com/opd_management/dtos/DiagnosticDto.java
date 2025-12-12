@@ -1,9 +1,14 @@
 package com.opd_management.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+
 //FrontEnd Data Temporary Store   
 public class DiagnosticDto {
 	
+	@NotBlank(message = "Name is required")
 	private String name;
+	
+	@NotBlank(message = "Date is required")
 	private String created_at;
 	
 	private int doctorid;

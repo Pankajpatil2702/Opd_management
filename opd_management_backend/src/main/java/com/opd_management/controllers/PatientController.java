@@ -20,6 +20,8 @@ import com.opd_management.entities.Patient;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.PatientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/patient")
 public class PatientController {
@@ -46,7 +48,7 @@ public class PatientController {
 	
 	// Insert Data Into Patient Table
 	@PostMapping("/")
-	public ResponseEntity<Patient> savePatient(@RequestBody PatientDto patientDto){
+	public ResponseEntity<Patient> savePatient(@Valid @RequestBody PatientDto patientDto){
 		
 		Patient patient =  new Patient();
 		
@@ -115,6 +117,17 @@ public class PatientController {
 		
 		return new ResponseEntity<>(updatePatient, HttpStatus.OK); 
 	}
+	
+	// new line added
+	@GetMapping("/bydoctorid/{doctorid}")
+	public ResponseEntity<List<Patient>> listBydoctorid(@PathVariable int doctorid){
+		List<Patient> patients =patientService.getPatientByDoctorid(doctorid);
+		if(patients == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(patients, HttpStatus.FOUND);
+	}
+	
 	
 	
 	// Delete Specific Id From Patient Table

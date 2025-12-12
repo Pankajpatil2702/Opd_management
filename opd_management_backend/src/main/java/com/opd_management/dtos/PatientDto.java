@@ -1,21 +1,59 @@
 package com.opd_management.dtos;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
+
 //FrontEnd Data Temporary Store   
 public class PatientDto {
 	
+	@NotBlank(message = " name is required")
 	private String patient_name;
+	
+	@Min(value = 0, message="Age cannot be negative")
 	private int age;
+	
+	@NotBlank(message = "Gender is required")
 	private String gender;
+	
+	@NotNull(message = "Mobile no is required")
+	@Pattern(regexp = "^[0-9]{10}$", message = "Mobile number must be 10 digits")
 	private String mobileNo;
+	
+	@NotBlank(message = "Address is required")
 	private String address;
+	
+	@NotBlank(message = "Blood group is required")
+	@Pattern(
+			regexp = "^(A|B|AB|O)[+-]$",
+			message = "Blood group must be valid like A+, B-, O+, AB-"
+			)
 	private String blood_group;
+	
+	@NotBlank(message = "Height is required")
 	private String height;
-	private String smoking;
-	private String alcohol;
-	private String tobacco;
+	
+	@NotBlank(message = "This smoking field is required y/n")
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
+	private String smoking; // optional fields
+	
+	@NotBlank(message = "This alcohol field is required y/n")
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
+	private String alcohol; // optional fields
+	
+	@NotBlank(message = "This tobacco field is require y/n")
+	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
+	private String tobacco; // optional fields
+	
+	@PastOrPresent(message = "Date must be past or present")
 	private String created_at;
 	
+	
 	// Create Doctor id Separate
+	@Positive(message = "ID must be positive")
 	private int doctorid;
 		
 	public String getPatient_name() {

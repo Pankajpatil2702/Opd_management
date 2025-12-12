@@ -3,6 +3,7 @@ package com.opd_management.servicesIMPLs;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.opd_management.entities.Patient;
@@ -38,6 +39,13 @@ public class PatientIMPL implements PatientService {
 	public void deletePatient(int id) {
 		// TODO Auto-generated method stub
 		patientRepository.deleteById(id);
+	}
+
+	// new line added
+	@Override
+	public List<Patient> getPatientByDoctorid(int doctorid) {
+		
+		return patientRepository.findByDoctorid_Id(doctorid);
 	}
 
 }

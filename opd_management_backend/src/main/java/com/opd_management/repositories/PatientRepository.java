@@ -9,5 +9,8 @@ import com.opd_management.entities.Patient;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
+	
+	// new method for find doctor id you how many patient assign
     List<Patient> findByDoctorid_Id(int doctorid);
 }
+ 

@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.opd_management.entities.Doctor;
+import com.opd_management.exception.DataBaseException;
+import com.opd_management.exception.DuplicateResourceException;
+import com.opd_management.exception.ResourseNotFoundException;
 import com.opd_management.repositories.DoctorRepository;
 import com.opd_management.services.DoctorService;
 
@@ -17,8 +20,18 @@ public class DoctorIMPL implements DoctorService {
 	
 	@Override
 	public Doctor saveDoctor(Doctor doctor) {
-		// TODO Auto-generated method stub
+	try {
+		try {
+			doctorRepository.existsByemail(doctor.getEmail());
+			
+		} catch (Exception e) {
+			throw new DuplicateResourceException("doctor with email " + doctor.getEmail() + " already exists");
+		}
 		return doctorRepository.save(doctor);
+	} catch (Exception e) {
+		 throw new DataBaseException("Failed to save teacher due to database error");
+	}
+		
 	}
 
 	@Override
@@ -30,7 +43,7 @@ public class DoctorIMPL implements DoctorService {
 	@Override
 	public Doctor getDoctorById(int id) {
 		// TODO Auto-generated method stub
-		return doctorRepository.findById(id).orElse(null);
+		return doctorRepository.findById(id).orElseThrow(()-> new ResourseNotFoundException(" Doctor not Found with id: "+id));
 	}
 
 	@Override

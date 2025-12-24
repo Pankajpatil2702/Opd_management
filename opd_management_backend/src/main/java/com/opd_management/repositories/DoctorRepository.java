@@ -7,5 +7,7 @@ import com.opd_management.entities.Doctor;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
+	
+	Boolean existsByemail(String email);
 
 }

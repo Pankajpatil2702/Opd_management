@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.opd_management.entities.Diagnostic;
+import com.opd_management.exception.DataBaseException;
+import com.opd_management.exception.ResourseNotFoundException;
 import com.opd_management.repositories.DiagnosticRepository;
 import com.opd_management.services.DiagnosticService;
 
@@ -17,26 +19,43 @@ public class DiagnosticIMPL implements DiagnosticService {
 	
 	@Override
 	public Diagnostic saveDiagnostic(Diagnostic diagnostic) {
-		// TODO Auto-generated method stub
-		return diagnosticRepository.save(diagnostic);
+		try {
+			
+			return diagnosticRepository.save(diagnostic);
+		}
+		catch(Exception e) {
+			
+			throw new DataBaseException("Failed to save diagnostic due to database error");
+		}
+		
 	}
 
 	@Override
 	public List<Diagnostic> getAllDiagnostic() {
-		// TODO Auto-generated method stub
-		return diagnosticRepository.findAll();
+		try {
+			return diagnosticRepository.findAll();
+		}
+		catch(Exception e) {
+			
+			throw new DataBaseException("Failed to find all diagnostic due to database error");
+		}
 	}
 
 	@Override
 	public Diagnostic getDiagnosticById(int id) {
 		// TODO Auto-generated method stub
-		return diagnosticRepository.findById(id).orElse(null);
+		return diagnosticRepository.findById(id).orElseThrow(() -> new ResourseNotFoundException("diagnostic not found with id:" + id));
 	}
 
 	@Override
 	public void deleteDiagnostic(int id) {
-		// TODO Auto-generated method stub
-		diagnosticRepository.deleteById(id);
+		try {
+			diagnosticRepository.deleteById(id);
+		}
+		catch(Exception e) {
+			
+			throw new DataBaseException("Failed to delete diagnostic due to database error");
+		}
 	}
 
 }

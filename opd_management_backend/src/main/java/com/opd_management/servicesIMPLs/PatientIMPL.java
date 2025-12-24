@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import com.opd_management.entities.Patient;
-import com.opd_management.exception.ResourceNotFound;
+import com.opd_management.exception.DataBaseException;
+import com.opd_management.exception.ResourseNotFoundException;
 import com.opd_management.repositories.PatientRepository;
 import com.opd_management.services.PatientService;
 
@@ -19,26 +21,39 @@ public class PatientIMPL implements PatientService {
 	
 	@Override
 	public Patient savePatient(Patient patient) {
-		// TODO Auto-generated method stub
-		return patientRepository.save(patient);
+		try {
+			return patientRepository.save(patient);
+		}
+		catch(Exception e){
+			throw new DataBaseException("Falied to save patient due to database error");
+		}
 	}
 
 	@Override
 	public List<Patient> getAllPatient() {
-		// TODO Auto-generated method stub
-		return patientRepository.findAll();
+		try {
+			
+			return patientRepository.findAll();
+		}
+		catch(Exception e) {
+			throw new DataBaseException("Failed to find patients due to database error");
+		}
 	}
 
 	@Override
 	public Patient getPatientById(int id) {   // add exception 
 		// TODO Auto-generated method stub
-		return patientRepository.findById(id).orElseThrow(() -> new ResourceNotFound("patient not found with id: " + id));
+		return patientRepository.findById(id).orElseThrow(() -> new ResourseNotFoundException("patient not found with id:" + id)); 
 	}
 
 	@Override
 	public void deletePatient(int id) {
-		// TODO Auto-generated method stub
-		patientRepository.deleteById(id);
+		try {
+			patientRepository.deleteById(id);
+		}
+		catch(Exception e) {
+			throw new DataBaseException("Failed to delete patient due to database error");
+		}
 	}
 
 	// new line added

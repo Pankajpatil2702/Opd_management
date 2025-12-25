@@ -32,8 +32,11 @@ public class DoctorDto {
     @Pattern(regexp = "^[0-9]{10}$", message = "Mobile number must be 10 digits")
 	private String mobileNo;
 	
+	private String role;     // new line added
+	private String qualification;  // new line added
 	
-	private String token; // optional field
+	
+	private String token;
 	
 	@NotBlank(message = "Status is required")
 	private String status;
@@ -43,7 +46,7 @@ public class DoctorDto {
 	
 	@NotBlank(message = "Updated date is required")
 	private String updated_at;
-
+	
 	
 	public String getName() {
 		return name;
@@ -87,6 +90,18 @@ public class DoctorDto {
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
 	public String getToken() {
 		return token;
 	}
@@ -111,5 +126,8 @@ public class DoctorDto {
 	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
+
+	
+	
 	
 }

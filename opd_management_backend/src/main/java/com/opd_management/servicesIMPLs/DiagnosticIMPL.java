@@ -37,7 +37,7 @@ public class DiagnosticIMPL implements DiagnosticService {
 		}
 		catch(Exception e) {
 			
-			throw new DataBaseException("Failed to find all diagnostic due to database error");
+			throw new DataBaseException("Failed to find diagnostic due to database error");
 		}
 	}
 

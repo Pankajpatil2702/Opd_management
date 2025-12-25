@@ -21,23 +21,40 @@ public class DoctorIMPL implements DoctorService {
 	@Override
 	public Doctor saveDoctor(Doctor doctor) {
 	try {
+		
 		try {
 			doctorRepository.existsByemail(doctor.getEmail());
 			
-		} catch (Exception e) {
+			try {
+				doctorRepository.existsByMobileNo(doctor.getMobileNo());
+			}
+			catch(Exception e) {
+				throw new DuplicateResourceException("doctor with monileNo" + doctor.getMobileNo() + "already exist");
+			}
+		} 
+		catch (Exception e) {
 			throw new DuplicateResourceException("doctor with email " + doctor.getEmail() + " already exists");
 		}
 		return doctorRepository.save(doctor);
-	} catch (Exception e) {
-		 throw new DataBaseException("Failed to save teacher due to database error");
 	}
+		catch (Exception e) {
+			throw new DataBaseException("Failed to save teacher due to database error");
+		}
 		
 	}
 
+	
 	@Override
 	public List<Doctor> getAllDoctor() {
-		// TODO Auto-generated method stub
-		return doctorRepository.findAll();
+		
+		try {
+			
+			return doctorRepository.findAll();
+		}
+		catch(Exception e) {
+			
+			throw new DataBaseException("Failed to find doctor due to database error");
+		}
 	}
 
 	@Override
@@ -48,8 +65,15 @@ public class DoctorIMPL implements DoctorService {
 
 	@Override
 	public void deleteDoctorId(int id) {
-		// TODO Auto-generated method stub
-		doctorRepository.deleteById(id);
+		
+		try {
+			
+			doctorRepository.deleteById(id);
+		}
+		catch(Exception e) {
+			
+			throw new DataBaseException("Failed to delete due to database error");
+		}
 	}
 
 }

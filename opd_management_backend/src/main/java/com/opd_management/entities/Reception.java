@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -27,6 +26,7 @@ public class Reception {
 	private String name;
 	private String email;
 	private String mobile_no;
+	private String role;   // new line added
 	private String shift;
 	private String password;
 	
@@ -67,6 +67,14 @@ public class Reception {
 		this.mobile_no = mobile_no;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public String getShift() {
 		return shift;
 	}
@@ -91,13 +99,14 @@ public class Reception {
 		this.doctorid = doctorid;
 	}
 
-	public Reception(int id, String name, String email, String mobile_no, String shift, String password,
+	public Reception(int id, String name, String email, String mobile_no, String role, String shift, String password,
 			Doctor doctorid) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.mobile_no = mobile_no;
+		this.role = role;
 		this.shift = shift;
 		this.password = password;
 		this.doctorid = doctorid;
@@ -110,9 +119,11 @@ public class Reception {
 
 	@Override
 	public String toString() {
-		return "Reception [id=" + id + ", name=" + name + ", email=" + email + ", mobile_no=" + mobile_no + ", shift="
-				+ shift + ", password=" + password + ", doctorid=" + doctorid + "]";
+		return "Reception [id=" + id + ", name=" + name + ", email=" + email + ", mobile_no=" + mobile_no + ", role="
+				+ role + ", shift=" + shift + ", password=" + password + ", doctorid=" + doctorid + "]";
 	}
+
+	
 	
 	
 }

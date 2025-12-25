@@ -28,10 +28,13 @@ public class Doctor {
 	private String clinic_name;
 	private String address;
 	private String mobileNo;
+	private String role;     // new line added
+	private String qualification;  // new line added
 	private String token;
 	private String status;
 	private String created_at;
 	private String updated_at;
+	
 	
 	public int getId() {
 		return id;
@@ -81,6 +84,18 @@ public class Doctor {
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
 	public String getToken() {
 		return token;
 	}
@@ -106,7 +121,8 @@ public class Doctor {
 		this.updated_at = updated_at;
 	}
 	public Doctor(int id, String name, String email, String password, String specialization, String clinic_name,
-			String address, String mobileNo, String token, String status, String created_at, String updated_at) {
+			String address, String mobileNo, String role, String qualification, String token, String status,
+			String created_at, String updated_at) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -116,22 +132,26 @@ public class Doctor {
 		this.clinic_name = clinic_name;
 		this.address = address;
 		this.mobileNo = mobileNo;
+		this.role = role;
+		this.qualification = qualification;
 		this.token = token;
 		this.status = status;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
 	}
-	public Doctor() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	@Override
 	public String toString() {
 		return "Doctor [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", specialization=" + specialization + ", clinic_name=" + clinic_name + ", address=" + address
-				+ ", mobileNo=" + mobileNo + ", token=" + token + ", status=" + status + ", created_at=" + created_at
-				+ ", updated_at=" + updated_at + "]";
+				+ ", mobileNo=" + mobileNo + ", role=" + role + ", qualification=" + qualification + ", token=" + token
+				+ ", status=" + status + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
 	}
+	public Doctor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 
 }

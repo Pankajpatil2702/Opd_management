@@ -39,7 +39,7 @@ public class BillIMPL implements BillService {
 		}
 		catch(Exception e) {
 			
-			throw new DataBaseException("Falied to find all bill due to database error");
+			throw new DataBaseException("Falied to find bill due to database error");
 		}
 	}
 	

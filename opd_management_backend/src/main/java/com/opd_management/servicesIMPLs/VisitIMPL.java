@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResourceAccessException;
-
 import com.opd_management.entities.Visit;
 import com.opd_management.exception.DataBaseException;
 import com.opd_management.exception.ResourseNotFoundException;

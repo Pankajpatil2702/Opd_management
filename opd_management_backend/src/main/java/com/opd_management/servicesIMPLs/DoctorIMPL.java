@@ -22,24 +22,19 @@ public class DoctorIMPL implements DoctorService {
 	public Doctor saveDoctor(Doctor doctor) {
 	try {
 		
-		try {
-			doctorRepository.existsByemail(doctor.getEmail());
-			
-			try {
-				doctorRepository.existsByMobileNo(doctor.getMobileNo());
-			}
-			catch(Exception e) {
-				throw new DuplicateResourceException("doctor with monileNo" + doctor.getMobileNo() + "already exist");
-			}
+		return doctorRepository.save(doctor);
 		} 
 		catch (Exception e) {
+			// Thrown when duplicate email is found
 			throw new DuplicateResourceException("doctor with email " + doctor.getEmail() + " already exists");
 		}
-		return doctorRepository.save(doctor);
-	}
-		catch (Exception e) {
-			throw new DataBaseException("Failed to save teacher due to database error");
-		}
+		 // Save doctor details if no duplicate found
+		
+//	}
+//		catch (Exception e) {
+			// Handles any database or unexpected exception
+//			throw new DataBaseException("Failed to save teacher due to database error");
+//		}
 		
 	}
 

@@ -1,7 +1,6 @@
 package com.opd_management.services;
 
 import java.util.List;
-
 import com.opd_management.entities.Pathology_Test;
 
 public interface Pathology_TestService {

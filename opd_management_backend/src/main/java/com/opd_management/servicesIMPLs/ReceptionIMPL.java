@@ -1,10 +1,8 @@
-   package com.opd_management.servicesIMPLs;
+package com.opd_management.servicesIMPLs;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.opd_management.entities.Reception;
 import com.opd_management.exception.DataBaseException;
 import com.opd_management.exception.DuplicateResourceException;
@@ -23,7 +21,7 @@ public class ReceptionIMPL implements ReceptionService {
 		try {
 			try {
 			
-				receptionRepository.existByEmail(reception.getEmail());
+				receptionRepository.existsByEmail(reception.getEmail());
 		}
 		catch(Exception e) {
 			

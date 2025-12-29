@@ -8,8 +8,8 @@ import com.opd_management.entities.Doctor;
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 	
-	Boolean existsByemail(String email);   // to find already email exist..
+	boolean existsByemail(String email);   // to find already email exist..
 	
-	Boolean existsByMobileNo(String mobileNo);  // to show already mobile no exist.
+	//Boolean existsByMobileNo(String mobileNo);  // to show already mobile no exist.
 
 }

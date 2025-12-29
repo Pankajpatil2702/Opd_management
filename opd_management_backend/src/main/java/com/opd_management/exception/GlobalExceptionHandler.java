@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.opd_management.responce.ErrorResponse;
 
+//Global exception handler class to handle exceptions across the whole application
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 	
@@ -21,14 +22,17 @@ public class GlobalExceptionHandler {
 	    public ResponseEntity<Map<String, String>> handleValidationErrors(
 	            MethodArgumentNotValidException ex) {
 
+		 // Map to store field name as key and validation message as value
 	        Map<String, String> errors = new HashMap<>();
-
+	        
+	        // Get all validation errors from the exception
 	        ex.getBindingResult()
-	          .getFieldErrors()
+	          .getFieldErrors()  // Fetch field-level validation errors
 	          .forEach(error ->
-	              errors.put(error.getField(), error.getDefaultMessage())
+	              errors.put(error.getField(), error.getDefaultMessage())  // Put field name and its corresponding error message into map
 	          );
-
+	        
+	        // Return errors map with HTTP 400 (Bad Request) status
 	        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 	    }
 	
@@ -38,6 +42,11 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(ResourseNotFoundException.class)
 	public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourseNotFoundException ex){
 		
+		// Create a custom error response object
+	    // It contains:
+	    // 1. HTTP status code (404 - Not Found)
+	    // 2. Error message coming from the exception
+	    // 3. Timestamp when the error occurred
 		ErrorResponse errorResponse = new ErrorResponse(
 				HttpStatus.NOT_FOUND.value(),
 				ex.getMessage(), 
@@ -51,11 +60,16 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(DataBaseException.class)
     public ResponseEntity<ErrorResponse> handleDatabaseException(
             DataBaseException ex) {
-
+		
+		// Create a custom error response for database failures
+	    // It contains:
+	    // 1. HTTP status code (500 - Internal Server Error)
+	    // 2. Error message describing the database issue
+	    // 3. Timestamp when the error occurred
 		ErrorResponse error = new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                ex.getMessage(),
-                LocalDateTime.now()
+                ex.getMessage(),     // Database error message
+                LocalDateTime.now()	 // Error occurrence time
         );
 
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -65,11 +79,18 @@ public class GlobalExceptionHandler {
 	 // ✅ 4.  Duplicate ResourceEXCEPTION (ALWAYS KEEP AT BOTTOM)
     @ExceptionHandler(DuplicateResourceException.class)
     public ResponseEntity<ErrorResponse>handleDuplicate(DuplicateResourceException ex){
+    	
+    	 // Create a custom error response object
+        // It contains:
+        // 1. HTTP status code (409 - Conflict)
+        // 2. Error message explaining the duplicate issue
+        // 3. Timestamp when the error occurred
     	ErrorResponse error = new ErrorResponse(
                 HttpStatus.CONFLICT.value(),
                 ex.getMessage(),
                 LocalDateTime.now()
         );
+    	 // Return the error response to the client
     	return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     	
     }
@@ -80,10 +101,16 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponse> handleGenericException(Exception ex){
 		
+		// Create a generic error response to avoid exposing internal details
+	    // It contains:
+	    // 1. HTTP status code (500 - Internal Server Error)
+	    // 2. A user-friendly error message
+	    // 3. Timestamp when the error occurred
 		ErrorResponse errorResponse = new ErrorResponse(
 				HttpStatus.INTERNAL_SERVER_ERROR.value(),
 				"Something went wrong",
 				 LocalDateTime.now());
+		// Return generic error response with HTTP 500
 		return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}

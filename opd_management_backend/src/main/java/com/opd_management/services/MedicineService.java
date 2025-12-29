@@ -1,7 +1,6 @@
 package com.opd_management.services;
 
 import java.util.List;
-
 import com.opd_management.entities.Medicine;
 
 public interface MedicineService {

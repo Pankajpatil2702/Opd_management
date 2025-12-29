@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.opd_management.dtos.BillDto;
 import com.opd_management.entities.Bill;
 import com.opd_management.entities.Visit;
@@ -27,7 +26,7 @@ import jakarta.validation.Valid;
 public class BillController {
 	
 	@Autowired
-	private BillService billService;
+	private BillService billService ;
 	
 	@Autowired
 	private VisitService visitService;

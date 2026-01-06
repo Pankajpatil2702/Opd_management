@@ -18,8 +18,8 @@ import jakarta.persistence.UniqueConstraint;
 
 public class Doctor {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id  // primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  // auto increment
 	private int id;
 	private String name;
 	private String email;

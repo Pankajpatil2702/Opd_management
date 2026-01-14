@@ -20,21 +20,21 @@ public class DoctorIMPL implements DoctorService {
 	
 	@Override
 	public Doctor saveDoctor(Doctor doctor) {
+		
+		if (doctorRepository.existsByemail(doctor.getEmail())) {
+			
+			throw new DuplicateResourceException("doctor with email " + doctor.getEmail() + " already exists");
+			
+		}
 	try {
 		
 		return doctorRepository.save(doctor);
 		} 
 		catch (Exception e) {
 			// Thrown when duplicate email is found
-			throw new DuplicateResourceException("doctor with email " + doctor.getEmail() + " already exists");
+			throw new DataBaseException("Failed to find doctor due to database error");
+			
 		}
-		 // Save doctor details if no duplicate found
-		
-//	}
-//		catch (Exception e) {
-			// Handles any database or unexpected exception
-//			throw new DataBaseException("Failed to save teacher due to database error");
-//		}
 		
 	}
 

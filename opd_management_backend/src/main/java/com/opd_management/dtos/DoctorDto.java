@@ -38,7 +38,7 @@ public class DoctorDto {
 	
 	private String token;
 	
-	@NotBlank(message = "Status is required")
+	@NotBlank(message = "Status is required")     
 	private String status;
 	
 	@NotBlank(message = "Created date is required")

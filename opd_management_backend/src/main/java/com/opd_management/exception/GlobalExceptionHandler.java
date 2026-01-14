@@ -3,6 +3,7 @@ package com.opd_management.exception;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,9 +17,10 @@ import com.opd_management.responce.ErrorResponse;
 public class GlobalExceptionHandler {
 	
 	
+	
 	 // ✅ 1. VALIDATION ERRORS (@Valid)
 	 @ExceptionHandler(MethodArgumentNotValidException.class)   // handle specific exception
-	    public ResponseEntity<Map<String, String>> handleValidationErrors(
+	 public ResponseEntity<Map<String, String>> handleValidationErrors(
 	            MethodArgumentNotValidException ex) {
 
 		 // Map to store field name as key and validation message as value

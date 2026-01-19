@@ -1,34 +1,47 @@
 package com.opd_management.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
+		@Autowired
+		private JwtAuthenticationFilter jwtAuthenticationFilter;
+		
+		@Autowired
+		private JwtAuthEntryPoint jwtAuthEntryPoint;
+	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 		
 		 http
 		 
-		 	// Disable CSRF protection (used when have JWT / REST APIs)
-	        .csrf(csrf -> csrf.disable())
-	        
-	        // Configuration authorization rules for HTTP requests
-	        .authorizeHttpRequests(auth -> auth
-	            .requestMatchers("/auth/login",
-	            		"/doctor/regsiter").permitAll()
-	            .anyRequest().authenticated()
-	        )
-	        
-	        // disable spring Security default login form
-	        .formLogin(form -> form.disable())
-	        
-	        // disable HTTP Basic authentication (browser popup login )
-	        .httpBasic(basic -> basic.disable());
+		 	.csrf(csrf -> csrf.disable())
+		 	.exceptionHandling(ex -> 
+		 	ex.authenticationEntryPoint(jwtAuthEntryPoint)
+		 	)
+		 	
+		 	.authorizeHttpRequests(auth -> auth
+		 			.requestMatchers("/doctors/register",
+		 					"/auth/login/doctor",
+		 					"/auth/login/admin",
+		 					"/auth/login/reception").permitAll()
+		 			.anyRequest().authenticated()
+		 			)
+		 	.sessionManagement(session -> 
+            session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        );
 		 
+		 http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
 		// build and return the security filter chain 
 	    return http.build();
 	}

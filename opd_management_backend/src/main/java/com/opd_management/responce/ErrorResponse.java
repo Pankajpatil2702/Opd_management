@@ -15,19 +15,14 @@ public class ErrorResponse {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ErrorResponse(int status, String message, LocalDateTime timestamp) {
+	
+	
+	public ErrorResponse(int status, String message ) {
 		super();
 		this.status = status;
 		this.message = message;
-		this.timestamp = timestamp;
+		this.timestamp = LocalDateTime.now();
 	}
-	
-//	public ErrorResponse(int status, String message ) {
-//		super();
-//		this.status = status;
-//		this.message = message;
-//		this.timestamp = LocalDateTime.now();
-//	}
 	
 	
 	public int getStatus() {

@@ -3,6 +3,8 @@ package com.opd_management.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,7 +28,8 @@ public class Reception {
 	private String name;
 	private String email;
 	private String mobile_no;
-	private String role;   // new line added
+	@Enumerated(EnumType.STRING)
+	private Role role;   // new line added
 	private String shift;
 	private String password;
 	
@@ -67,11 +70,11 @@ public class Reception {
 		this.mobile_no = mobile_no;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
@@ -99,7 +102,7 @@ public class Reception {
 		this.doctorid = doctorid;
 	}
 
-	public Reception(int id, String name, String email, String mobile_no, String role, String shift, String password,
+	public Reception(int id, String name, String email, String mobile_no, Role role, String shift, String password,
 			Doctor doctorid) {
 		super();
 		this.id = id;
@@ -122,6 +125,9 @@ public class Reception {
 		return "Reception [id=" + id + ", name=" + name + ", email=" + email + ", mobile_no=" + mobile_no + ", role="
 				+ role + ", shift=" + shift + ", password=" + password + ", doctorid=" + doctorid + "]";
 	}
+
+
+
 
 	
 	

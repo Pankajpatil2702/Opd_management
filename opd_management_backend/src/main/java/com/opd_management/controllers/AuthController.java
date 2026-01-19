@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.opd_management.dtos.LoginRequest;
-import com.opd_management.responce.LoginResponse;
+import com.opd_management.dtos.LoginReq_Dto;
+import com.opd_management.responce.JwtResponse;
 import com.opd_management.services.AuthService;
 
 import jakarta.validation.Valid;
@@ -16,12 +16,26 @@ import jakarta.validation.Valid;
 @RequestMapping("/auth")
 public class AuthController {
 
+	
+	// Inject service layer to perform Auth-related operations
 	@Autowired
 	private  AuthService authService;
 	
-	@PostMapping("/login")
-	public LoginResponse login(@Valid @RequestBody LoginRequest loginRequest) {
+	@PostMapping("/login/doctor")
+	public JwtResponse doctorLogin(@Valid @RequestBody LoginReq_Dto loginReq_Dto) {
 		
-		return authService.login(loginRequest);
+		return authService.doctorLogin(loginReq_Dto);
+	}
+	
+	@PostMapping("/login/admin")
+	public JwtResponse adminLogin(@Valid @RequestBody LoginReq_Dto loginReq_Dto) {
+		
+		return authService.adminLogin(loginReq_Dto);
+	}
+	
+	@PostMapping("/login/reception")
+	public JwtResponse receptionLogin(@Valid @RequestBody LoginReq_Dto loginReq_Dto) {
+		
+		return authService.receptionLogin(loginReq_Dto);
 	}
 }

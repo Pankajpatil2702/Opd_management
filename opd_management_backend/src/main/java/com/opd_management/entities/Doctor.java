@@ -28,14 +28,12 @@ public class Doctor {
 	private String clinic_name;
 	private String address;
 	private String mobileNo;
-	private String role;     // new line added
+	private Role role;     // new line added
 	private String qualification;  // new line added
 	private String token;
 	private String status;
 	private String created_at;
 	private String updated_at;
-	
-	
 	public int getId() {
 		return id;
 	}
@@ -84,10 +82,10 @@ public class Doctor {
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 	public String getQualification() {
@@ -121,7 +119,7 @@ public class Doctor {
 		this.updated_at = updated_at;
 	}
 	public Doctor(int id, String name, String email, String password, String specialization, String clinic_name,
-			String address, String mobileNo, String role, String qualification, String token, String status,
+			String address, String mobileNo, Role role, String qualification, String token, String status,
 			String created_at, String updated_at) {
 		super();
 		this.id = id;
@@ -139,6 +137,10 @@ public class Doctor {
 		this.created_at = created_at;
 		this.updated_at = updated_at;
 	}
+	public Doctor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Doctor [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password
@@ -146,10 +148,7 @@ public class Doctor {
 				+ ", mobileNo=" + mobileNo + ", role=" + role + ", qualification=" + qualification + ", token=" + token
 				+ ", status=" + status + ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
 	}
-	public Doctor() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	
 	

@@ -50,8 +50,8 @@ public class GlobalExceptionHandler {
 	    // 3. Timestamp when the error occurred
 		ErrorResponse errorResponse = new ErrorResponse(
 				HttpStatus.NOT_FOUND.value(),
-				ex.getMessage(), 
-				LocalDateTime.now());
+				ex.getMessage()
+			);
 		
 		return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
 		
@@ -69,8 +69,8 @@ public class GlobalExceptionHandler {
 	    // 3. Timestamp when the error occurred
 		ErrorResponse error = new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                ex.getMessage(),     // Database error message
-                LocalDateTime.now()	 // Error occurrence time
+                ex.getMessage()     // Database error message
+               	 // Error occurrence time
         );
 
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -88,9 +88,8 @@ public class GlobalExceptionHandler {
         // 3. Timestamp when the error occurred
     	ErrorResponse error = new ErrorResponse(
                 HttpStatus.CONFLICT.value(),
-                ex.getMessage(),
-                LocalDateTime.now()
-        );
+                ex.getMessage()
+                     );
     	 // Return the error response to the client
     	return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     	
@@ -109,8 +108,8 @@ public class GlobalExceptionHandler {
 	    // 3. Timestamp when the error occurred
 		ErrorResponse errorResponse = new ErrorResponse(
 				HttpStatus.INTERNAL_SERVER_ERROR.value(),
-				"Something went wrong",
-				 LocalDateTime.now());
+				"Something went wrong"
+				 );
 		// Return generic error response with HTTP 500
 		return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
 		

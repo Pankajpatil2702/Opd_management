@@ -1,5 +1,7 @@
 package com.opd_management.dtos;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -96,10 +98,10 @@ public class VisitDto {
 	private String followup_date;
 	
 	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private String updates_at;
+	private LocalDateTime updates_at;
 	
 	
 	@NotNull(message = "Id must be required")
@@ -334,20 +336,20 @@ public class VisitDto {
 		this.followup_date = followup_date;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = LocalDateTime.now();
 	}
 
-	public String getUpdates_at() {
+	public LocalDateTime getUpdates_at() {
 		return updates_at;
 	}
 
-	public void setUpdates_at(String updates_at) {
-		this.updates_at = updates_at;
+	public void setUpdates_at(LocalDateTime updates_at) {
+		this.updates_at = LocalDateTime.now();
 	}
 
 	public int getPatientid() {
@@ -365,5 +367,8 @@ public class VisitDto {
 	public void setDoctorid(int doctorid) {
 		this.doctorid = doctorid;
 	}
+
+	
+	
 
 }

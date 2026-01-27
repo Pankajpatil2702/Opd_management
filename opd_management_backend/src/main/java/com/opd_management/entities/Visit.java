@@ -1,5 +1,7 @@
 package com.opd_management.entities;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -45,8 +47,8 @@ public class Visit {
 	private String hb;
 	private String ecg;
 	private String followup_date;
-	private String created_at;
-	private String updates_at;
+	private LocalDateTime created_at;
+	private LocalDateTime updates_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "patientId")
@@ -290,19 +292,19 @@ public class Visit {
 		this.followup_date = followup_date;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
-	public String getUpdates_at() {
+	public LocalDateTime getUpdates_at() {
 		return updates_at;
 	}
 
-	public void setUpdates_at(String updates_at) {
+	public void setUpdates_at(LocalDateTime updates_at) {
 		this.updates_at = updates_at;
 	}
 
@@ -327,7 +329,7 @@ public class Visit {
 			String pp_sugar, String random_sugar, String urea_creatinine, String past_history,
 			String current_medication, String additional_notes, int weight, String edema, String pallor,
 			String jaundice, String cvs, String rs, String pa, String cns, String hb, String ecg, String followup_date,
-			String created_at, String updates_at, Patient patientid, Doctor doctorid) {
+			LocalDateTime created_at, LocalDateTime updates_at, Patient patientid, Doctor doctorid) {
 		super();
 		this.id = id;
 		this.visit_date = visit_date;
@@ -382,6 +384,7 @@ public class Visit {
 				+ created_at + ", updates_at=" + updates_at + ", patientid=" + patientid + ", doctorid=" + doctorid
 				+ "]";
 	}
+
 	
 	
 

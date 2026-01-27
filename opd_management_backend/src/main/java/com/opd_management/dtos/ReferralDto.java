@@ -1,5 +1,7 @@
 package com.opd_management.dtos;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -19,7 +21,7 @@ public class ReferralDto {
 	private String detalis;
 	
 	@NotBlank(message = "Created date is required")
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	@NotNull(message = "Id must be required")
 	@Positive(message = "ID must be positive")
@@ -61,12 +63,12 @@ public class ReferralDto {
 		this.detalis = detalis;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = LocalDateTime.now();
 	}
 
 	public int getVisitid() {
@@ -100,6 +102,6 @@ public class ReferralDto {
 	public void setReferralCenterid(int referralCenterid) {
 		this.referralCenterid = referralCenterid;
 	}
-	
+
 	
 }

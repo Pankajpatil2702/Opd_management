@@ -1,6 +1,7 @@
 package com.opd_management.dtos;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -46,7 +47,7 @@ public class BillDto {
 	private BigDecimal pending_amount;
 	
 	@NotBlank(message = "Created date is required")
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	@NotNull(message = "Id must be required")
 	@Positive(message = "ID must be positive")
@@ -108,12 +109,12 @@ public class BillDto {
 		this.pending_amount = pending_amount;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = LocalDateTime.now();
 	}
 
 	public int getVisitid() {
@@ -123,6 +124,7 @@ public class BillDto {
 	public void setVisitid(int visitid) {
 		this.visitid = visitid;
 	}
+
 	
 	
 	

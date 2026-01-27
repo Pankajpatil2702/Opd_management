@@ -10,6 +10,7 @@ public class DoctorResponce {
 	private String clinic_name;
 	private String address;
 	private String mobileNo;
+	
 	public int getId() {
 		return id;
 	}

@@ -1,5 +1,7 @@
 package com.opd_management.dtos;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -19,7 +21,7 @@ public class Pathology_TestDto {
 	private String report_file;
 	
 	@NotBlank(message = "Created date is required")
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	@NotNull(message = "id is required")
 	@Positive(message = "ID must be positive")
@@ -53,12 +55,12 @@ public class Pathology_TestDto {
 		this.report_file = report_file;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = LocalDateTime.now();
 	}
 
 	public int getVisitid() {
@@ -76,6 +78,7 @@ public class Pathology_TestDto {
 	public void setTestMasterid(int testMasterid) {
 		this.testMasterid = testMasterid;
 	}
+
 	
 	
 }

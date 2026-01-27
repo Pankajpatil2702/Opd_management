@@ -1,5 +1,7 @@
 package com.opd_management.entities;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -20,7 +22,7 @@ public class Visit_Report {
 	private String file_name;
 	private String file_url;
 	private String file_type;
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	
 	@ManyToOne
@@ -69,12 +71,12 @@ public class Visit_Report {
 	}
 
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
@@ -89,7 +91,8 @@ public class Visit_Report {
 	}
 
 
-	public Visit_Report(int id, String file_name, String file_url, String file_type, String created_at, Visit visitid) {
+	public Visit_Report(int id, String file_name, String file_url, String file_type, LocalDateTime created_at,
+			Visit visitid) {
 		super();
 		this.id = id;
 		this.file_name = file_name;
@@ -111,7 +114,8 @@ public class Visit_Report {
 		return "Visit_Report [id=" + id + ", file_name=" + file_name + ", file_url=" + file_url + ", file_type="
 				+ file_type + ", created_at=" + created_at + ", visitid=" + visitid + "]";
 	}
-	
+
+
 	
 
 }

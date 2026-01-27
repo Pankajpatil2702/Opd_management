@@ -1,6 +1,8 @@
 package com.opd_management.entities;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -25,7 +27,7 @@ public class Bill {
 	private BigDecimal paid_amount;
 	private BigDecimal total_amount;
 	private BigDecimal pending_amount;
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "visitId")
@@ -96,11 +98,11 @@ public class Bill {
 		this.pending_amount = pending_amount;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
@@ -112,13 +114,8 @@ public class Bill {
 		this.visitid = visitid;
 	}
 
-	public Bill() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public Bill(int id, BigDecimal consultation_fee, String payment_status, String payment_mode, BigDecimal concession,
-			BigDecimal paid_amount, BigDecimal total_amount, BigDecimal pending_amount, String created_at,
+			BigDecimal paid_amount, BigDecimal total_amount, BigDecimal pending_amount, LocalDateTime created_at,
 			Visit visitid) {
 		super();
 		this.id = id;
@@ -133,6 +130,11 @@ public class Bill {
 		this.visitid = visitid;
 	}
 
+	public Bill() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "Bill [id=" + id + ", consultation_fee=" + consultation_fee + ", payment_status=" + payment_status
@@ -140,6 +142,7 @@ public class Bill {
 				+ ", total_amount=" + total_amount + ", pending_amount=" + pending_amount + ", created_at=" + created_at
 				+ ", visitid=" + visitid + "]";
 	}
+
 	
 	
 	

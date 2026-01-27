@@ -98,23 +98,23 @@ public class GlobalExceptionHandler {
 	
 	
     // ✅ 5. FALLBACK EXCEPTION (ALWAYS KEEP AT BOTTOM)
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<ErrorResponse> handleGenericException(Exception ex){
-		
-		// Create a generic error response to avoid exposing internal details
-	    // It contains:
-	    // 1. HTTP status code (500 - Internal Server Error)
-	    // 2. A user-friendly error message
-	    // 3. Timestamp when the error occurred
-		ErrorResponse errorResponse = new ErrorResponse(
-				HttpStatus.INTERNAL_SERVER_ERROR.value(),
-				"Something went wrong"
-				 );
-		// Return generic error response with HTTP 500
-		return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
-		
-	}
-	
+//	@ExceptionHandler(Exception.class)
+//	public ResponseEntity<ErrorResponse> handleGenericException(Exception ex){
+//		
+//		// Create a generic error response to avoid exposing internal details
+//	    // It contains:
+//	    // 1. HTTP status code (500 - Internal Server Error)
+//	    // 2. A user-friendly error message
+//	    // 3. Timestamp when the error occurred
+//		ErrorResponse errorResponse = new ErrorResponse(
+//				HttpStatus.INTERNAL_SERVER_ERROR.value(),
+//				"Something went wrong"
+//				 );
+//		// Return generic error response with HTTP 500
+//		return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
+//		
+//	}
+//	
 	
 
 }

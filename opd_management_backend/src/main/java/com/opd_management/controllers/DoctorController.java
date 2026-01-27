@@ -21,7 +21,7 @@ import com.opd_management.services.DoctorService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping("/doctors")
 public class DoctorController {
 	
 	@Autowired

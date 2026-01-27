@@ -38,7 +38,7 @@ public class JwtUtil {
 	// Extract email
 	public String extractEmail(String token) {            // to get from token   
 		
-		return parseToken(token).getBody().getSubject();
+		return parseToken(token).getBody().getSubject();    // 
 		
 	}
 	

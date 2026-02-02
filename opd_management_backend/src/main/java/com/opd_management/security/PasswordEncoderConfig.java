@@ -8,9 +8,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class PasswordEncoderConfig {
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		
-		return new BCryptPasswordEncoder();
-	}
+	// This method creates a PasswordEncoder bean
+    // It is used to encrypt and verify passwords securely
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        
+        // BCryptPasswordEncoder uses BCrypt hashing algorithm
+        // to store passwords in encrypted (hashed) form
+        return new BCryptPasswordEncoder();
+    }
 }

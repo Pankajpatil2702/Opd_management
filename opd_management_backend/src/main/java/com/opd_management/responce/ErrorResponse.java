@@ -1,49 +1,46 @@
 package com.opd_management.responce;
 
-import java.time.LocalDateTime;
-
 public class ErrorResponse {
 	
 	private int status; // HttpStetusCode
 	private String message;   // exception message
-	private LocalDateTime timestamp;
+	private String timestamp;
 	
-	
-	
+	public ErrorResponse(int status, String timestamp) {
+		super();
+		this.status = status;
+		this.message = message;
+		this.timestamp = timestamp;
+	}
+
 	public ErrorResponse() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
-	public ErrorResponse(int status, String message ) {
-		super();
-		this.status = status;
-		this.message = message;
-		this.timestamp = LocalDateTime.now();
-	}
-	
-	
 	public int getStatus() {
 		return status;
 	}
+
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
 	public String getMessage() {
 		return message;
 	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public LocalDateTime getTimestamp() {
+
+	public String getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(LocalDateTime timestamp) {
+
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
-	} 
-	
+	}
 	
 	
 	

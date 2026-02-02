@@ -29,7 +29,7 @@ public class Patient {
 	private String smoking;
 	private String alcohol;
 	private String tobacco;
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "doctorId")
@@ -124,11 +124,11 @@ public class Patient {
 		this.tobacco = tobacco;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
@@ -141,7 +141,7 @@ public class Patient {
 	}
 
 	public Patient(int id, String patient_name, int age, String gender, String mobileNo, String address,
-			String blood_group, String height, String smoking, String alcohol, String tobacco, LocalDateTime created_at,
+			String blood_group, String height, String smoking, String alcohol, String tobacco, String created_at,
 			Doctor doctorid) {
 		super();
 		this.id = id;
@@ -172,6 +172,5 @@ public class Patient {
 				+ created_at + ", doctorid=" + doctorid + "]";
 	}
 
-	
 	
 }

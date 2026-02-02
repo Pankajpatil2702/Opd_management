@@ -27,7 +27,7 @@ public class Bill {
 	private BigDecimal paid_amount;
 	private BigDecimal total_amount;
 	private BigDecimal pending_amount;
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "visitId")
@@ -98,11 +98,11 @@ public class Bill {
 		this.pending_amount = pending_amount;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
@@ -115,7 +115,7 @@ public class Bill {
 	}
 
 	public Bill(int id, BigDecimal consultation_fee, String payment_status, String payment_mode, BigDecimal concession,
-			BigDecimal paid_amount, BigDecimal total_amount, BigDecimal pending_amount, LocalDateTime created_at,
+			BigDecimal paid_amount, BigDecimal total_amount, BigDecimal pending_amount, String created_at,
 			Visit visitid) {
 		super();
 		this.id = id;
@@ -143,8 +143,5 @@ public class Bill {
 				+ ", visitid=" + visitid + "]";
 	}
 
-	
-	
-	
 	
 }

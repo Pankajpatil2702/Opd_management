@@ -98,10 +98,10 @@ public class VisitDto {
 	private String followup_date;
 	
 	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private LocalDateTime updates_at;
+	private String updates_at;
 	
 	
 	@NotNull(message = "Id must be required")
@@ -336,20 +336,20 @@ public class VisitDto {
 		this.followup_date = followup_date;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
 	}
 
-	public LocalDateTime getUpdates_at() {
+	public String getUpdates_at() {
 		return updates_at;
 	}
 
-	public void setUpdates_at(LocalDateTime updates_at) {
-		this.updates_at = LocalDateTime.now();
+	public void setUpdates_at(String updates_at) {
+		this.updates_at = updates_at;
 	}
 
 	public int getPatientid() {
@@ -368,7 +368,6 @@ public class VisitDto {
 		this.doctorid = doctorid;
 	}
 
-	
 	
 
 }

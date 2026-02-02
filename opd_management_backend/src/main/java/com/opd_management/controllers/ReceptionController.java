@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import com.opd_management.services.ReceptionService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/reception")
+@RequestMapping("/api/reception")
 public class ReceptionController {
 
 	@Autowired
@@ -30,7 +31,10 @@ public class ReceptionController {
 	@Autowired
 	private DoctorService doctorService;
 	
-	@PostMapping("/")
+	@Autowired
+	private PasswordEncoder encoder;
+	
+	@PostMapping("/regsiter")
 	public ResponseEntity<Reception> saveDataFromReception(@Valid @RequestBody ReceptionDto receptionDto){
 		
 		Reception reception = new Reception();
@@ -39,7 +43,7 @@ public class ReceptionController {
 		reception.setEmail(receptionDto.getEmail());
 		reception.setMobile_no(receptionDto.getMobile_no());
 		reception.setShift(receptionDto.getShift());
-		reception.setPassword(receptionDto.getPassword());
+		reception.setPassword(encoder.encode(receptionDto.getPassword()));
 		
 		Doctor doctor = doctorService.getDoctorById(receptionDto.getDoctorid());
 		

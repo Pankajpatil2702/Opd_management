@@ -19,88 +19,90 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
+//JwtAuthenticationFilter checks every request for a JWT token, validates it, extracts user details, and sets
+//authentication in the Spring Security context so protected APIs can be accessed.
+
+/**
+ * JwtAuthenticationFilter
+ * This filter nuns once for every HTTP request.
+ * It intercepts incoming requests, extracts the JWT token,
+ * validates it, and sets authentication in spring security context.
+ */
 @Component
-public class JwtAuthenticationFilter extends  OncePerRequestFilter{
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-	@Autowired
-	private JwtUtil jwtUtil;
-	
-	
-	
-	@Override
-	protected void doFilterInternal(HttpServletRequest request,
-									HttpServletResponse response, 
-									FilterChain filterChain)
-	
-			throws ServletException, IOException {
-		
-		try {
-			
-			String authHeader = request.getHeader("Authorization");
-			
-			// ✅ If token missing → skip
-			if(authHeader == null || !authHeader.startsWith("Bearer ")) {
-				
-				filterChain.doFilter(request, response);
-				
-				return;
-			}
-			
-			String token = authHeader.substring(7);
-			
-			if(jwtUtil.isValid(token)) {
-				
-				// 🔐 Extract data from JWT
-				String email = jwtUtil.extractEmail(token);
-				String role = jwtUtil.extractRole(token);
-				
-				// 🔑 Convert ROLE to Authority
-				SimpleGrantedAuthority authority = new 
-						SimpleGrantedAuthority("ROLE_" + role);
-				
-				UsernamePasswordAuthenticationToken auth =
-						new UsernamePasswordAuthenticationToken(
-								email,
-								null,
-								List.of(authority)
-								 );
-				
-				SecurityContextHolder.getContext().setAuthentication(auth);
-			}
-			
-			filterChain.doFilter(request, response);
-			
-			
-		}
-		catch (ExpiredJwtException e) {
-			sendError(response, "JWT token expired");
-		} 
-		catch (MalformedJwtException e) {
-			sendError(response, "Invalid Jwt token");
-		}
-		catch (SignatureException e) {
-			sendError(response, "JWT signature invalid");
-		}
-//		catch (Exception ex) {
-//          sendError(response, "JWT authentication failed");
-//      }
-	}
-	
-	// 🔴 Error Response Method
-	private void sendError(HttpServletResponse response, String message) throws  IOException {
-		
-		
-		
-		 ErrorResponse error = new ErrorResponse(
-				 HttpServletResponse.SC_UNAUTHORIZED,
-				 message);
-		 
-		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-		response.setContentType("application/json");
-		
-		new ObjectMapper().writeValue(response.getOutputStream(), error);
-	}
-	
-	
+    @Autowired
+    private JwtUtil jwtUtil;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
+
+        try {
+            String authHeader = request.getHeader("Authorization");
+
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            String token = authHeader.substring(7);
+
+            if (jwtUtil.isValid(token)) {
+
+                String email = jwtUtil.extractEmail(token);
+                String role = jwtUtil.extractRole(token);
+
+                SimpleGrantedAuthority authority =
+                        new SimpleGrantedAuthority("ROLE_" + role);
+
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(
+                                email,
+                                null,
+                                List.of(authority)
+                        );
+
+                SecurityContextHolder.getContext()
+                        .setAuthentication(authentication);
+            }
+
+            filterChain.doFilter(request, response);
+
+        } catch (ExpiredJwtException e) {
+        	sendError(response, "JWT token expired");
+            
+        } catch (MalformedJwtException e) {
+        	sendError(response, "Invalid JWT token");
+           
+        } catch (SignatureException e) {
+        	sendError(response, "JWT signature invalid");
+            
+     }
+//        catch (Exception e) {
+//            handleJwtError(response, "JWT authentication failed");
+//            return;
+//        }
+    }
+
+    private void sendError(HttpServletResponse response, String message) throws IOException {
+    	
+    	ErrorResponse error = new ErrorResponse(
+                HttpServletResponse.SC_UNAUTHORIZED,
+                message
+        );
+
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setContentType("application/json");
+
+        new ObjectMapper().writeValue(response.getOutputStream(), error);
+    	
+    }
 }
+

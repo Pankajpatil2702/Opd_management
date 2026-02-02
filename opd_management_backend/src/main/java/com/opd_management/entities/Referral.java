@@ -22,7 +22,7 @@ public class Referral {
 	private String note_type;
 	private String reason;
 	private String detalis;
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "visitId")
@@ -76,11 +76,11 @@ public class Referral {
 		this.detalis = detalis;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
@@ -116,7 +116,7 @@ public class Referral {
 		this.referralCenterid = referralCenterid;
 	}
 
-	public Referral(int id, String note_type, String reason, String detalis, LocalDateTime created_at, Visit visitid,
+	public Referral(int id, String note_type, String reason, String detalis, String created_at, Visit visitid,
 			Patient patientid, Doctor doctorid, Referral_Center referralCenterid) {
 		super();
 		this.id = id;

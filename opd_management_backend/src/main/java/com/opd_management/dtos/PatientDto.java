@@ -51,7 +51,7 @@ public class PatientDto {
 	private String tobacco; // optional fields
 	
 	@PastOrPresent(message = "Date must be past or present")
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	
 	// Create Doctor id Separate
@@ -160,13 +160,13 @@ public class PatientDto {
 	}
 
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
 	}
 
 
@@ -178,7 +178,8 @@ public class PatientDto {
 	public void setDoctorid(int doctorid) {
 		this.doctorid = doctorid;
 	}
-		
+
+
 	
 
 }

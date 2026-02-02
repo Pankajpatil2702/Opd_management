@@ -31,6 +31,10 @@ public class DoctorIMPL implements DoctorService {
 		return doctorRepository.save(doctor);
 		} 
 		catch (Exception e) {
+			System.out.println("ERROR CLASS: " + e.getClass().getName());
+		    System.out.println("ERROR MESSAGE: " + e.getMessage());
+		    e.printStackTrace(); // 🔥 FULL DETAIL
+		    
 			// Thrown when duplicate email is found
 			throw new DataBaseException("Failed to find doctor due to database error");
 			

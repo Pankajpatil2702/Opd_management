@@ -34,9 +34,8 @@ public class Doctor {
 	private String qualification;  // new line added
 	private String token;
 	private String status;
-	private LocalDateTime created_at;
-	private LocalDateTime updated_at;
-	
+	private String created_at;
+	private String updated_at;
 	public int getId() {
 		return id;
 	}
@@ -109,21 +108,21 @@ public class Doctor {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
-	public LocalDateTime getUpdated_at() {
+	public String getUpdated_at() {
 		return updated_at;
 	}
-	public void setUpdated_at(LocalDateTime updated_at) {
+	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
 	public Doctor(int id, String name, String email, String password, String specialization, String clinic_name,
 			String address, String mobileNo, Role role, String qualification, String token, String status,
-			LocalDateTime created_at, LocalDateTime updated_at) {
+			String created_at, String updated_at) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -153,7 +152,4 @@ public class Doctor {
 	}
 	
 	
-	
-	
-
 }

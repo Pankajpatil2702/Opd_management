@@ -47,8 +47,8 @@ public class Visit {
 	private String hb;
 	private String ecg;
 	private String followup_date;
-	private LocalDateTime created_at;
-	private LocalDateTime updates_at;
+	private String created_at;
+	private String updates_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "patientId")
@@ -292,19 +292,19 @@ public class Visit {
 		this.followup_date = followup_date;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
-	public LocalDateTime getUpdates_at() {
+	public String getUpdates_at() {
 		return updates_at;
 	}
 
-	public void setUpdates_at(LocalDateTime updates_at) {
+	public void setUpdates_at(String updates_at) {
 		this.updates_at = updates_at;
 	}
 
@@ -329,7 +329,7 @@ public class Visit {
 			String pp_sugar, String random_sugar, String urea_creatinine, String past_history,
 			String current_medication, String additional_notes, int weight, String edema, String pallor,
 			String jaundice, String cvs, String rs, String pa, String cns, String hb, String ecg, String followup_date,
-			LocalDateTime created_at, LocalDateTime updates_at, Patient patientid, Doctor doctorid) {
+			String created_at, String updates_at, Patient patientid, Doctor doctorid) {
 		super();
 		this.id = id;
 		this.visit_date = visit_date;
@@ -386,6 +386,4 @@ public class Visit {
 	}
 
 	
-	
-
 }

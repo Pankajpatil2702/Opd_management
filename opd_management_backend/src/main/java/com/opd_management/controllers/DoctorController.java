@@ -45,7 +45,7 @@ public class DoctorController {
 			doctor.setClinic_name(doctorDto.getClinic_name());
 			doctor.setAddress(doctorDto.getAddress());
 			doctor.setMobileNo(doctorDto.getMobileNo());
-			
+			doctor.setQualification(doctorDto.getQualification());
 			doctor.setToken(doctorDto.getToken());
 			doctor.setStatus(doctorDto.getStatus());
 			doctor.setCreated_at(doctorDto.getCreated_at());

@@ -44,10 +44,10 @@ public class DoctorDto {
 	private String status;
 	
 	@NotBlank(message = "Created date is required")
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@NotBlank(message = "Updated date is required")
-	private LocalDateTime updated_at;
+	private String updated_at;
 
 	public String getName() {
 		return name;
@@ -137,23 +137,22 @@ public class DoctorDto {
 		this.status = status;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
 	}
 
-	public LocalDateTime getUpdated_at() {
+	public String getUpdated_at() {
 		return updated_at;
 	}
 
-	public void setUpdated_at(LocalDateTime updated_at) {
-		this.updated_at = LocalDateTime.now();
+	public void setUpdated_at(String updated_at) {
+		this.updated_at = updated_at;
 	}
-	
-	
+
 	
 	
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.opd_management.dtos.AdminDto;
 import com.opd_management.entities.Admin;
+import com.opd_management.entities.Role;
 import com.opd_management.services.AdminService;
 
 import jakarta.validation.Valid;
@@ -43,7 +44,7 @@ public class AdminController {
 		admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
 		admin.setCreated_at(adminDto.getCreated_at());
 		admin.setUpdate_at(adminDto.getUpdate_at());
-		
+		admin.setRole(Role.ADMIN);
 		Admin saveAdmin = adminService.saveAdmin(admin);
 		
 		return new ResponseEntity<>(saveAdmin, HttpStatus.CREATED);

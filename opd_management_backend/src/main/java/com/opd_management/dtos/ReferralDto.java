@@ -21,7 +21,7 @@ public class ReferralDto {
 	private String detalis;
 	
 	@NotBlank(message = "Created date is required")
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@NotNull(message = "Id must be required")
 	@Positive(message = "ID must be positive")
@@ -63,12 +63,12 @@ public class ReferralDto {
 		this.detalis = detalis;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
 	}
 
 	public int getVisitid() {

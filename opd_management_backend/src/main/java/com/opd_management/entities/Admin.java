@@ -1,5 +1,7 @@
 package com.opd_management.entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -22,7 +24,6 @@ public class Admin {
 	private String token;
 	private String created_at;
 	private String update_at;
-	
 	public int getId() {
 		return id;
 	}
@@ -94,17 +95,6 @@ public class Admin {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Admin [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", mobileNo="
-				+ mobileNo + ", role=" + role + ", token=" + token + ", created_at=" + created_at + ", update_at="
-				+ update_at + "]";
-	}
-
 	
 	
-	
-
-	
-
 }

@@ -22,7 +22,7 @@ public class Visit_Report {
 	private String file_name;
 	private String file_url;
 	private String file_type;
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	
 	@ManyToOne
@@ -71,12 +71,12 @@ public class Visit_Report {
 	}
 
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
 
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 
@@ -91,8 +91,7 @@ public class Visit_Report {
 	}
 
 
-	public Visit_Report(int id, String file_name, String file_url, String file_type, LocalDateTime created_at,
-			Visit visitid) {
+	public Visit_Report(int id, String file_name, String file_url, String file_type, String created_at, Visit visitid) {
 		super();
 		this.id = id;
 		this.file_name = file_name;
@@ -117,5 +116,4 @@ public class Visit_Report {
 
 
 	
-
 }

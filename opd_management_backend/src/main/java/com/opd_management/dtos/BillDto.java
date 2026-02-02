@@ -47,7 +47,7 @@ public class BillDto {
 	private BigDecimal pending_amount;
 	
 	@NotBlank(message = "Created date is required")
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	@NotNull(message = "Id must be required")
 	@Positive(message = "ID must be positive")
@@ -109,12 +109,12 @@ public class BillDto {
 		this.pending_amount = pending_amount;
 	}
 
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
 	}
 
 	public int getVisitid() {
@@ -125,10 +125,6 @@ public class BillDto {
 		this.visitid = visitid;
 	}
 
-	
-	
-	
-	
 	
 
 }

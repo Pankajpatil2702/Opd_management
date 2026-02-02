@@ -44,7 +44,8 @@ public class AdminController {
 		admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
 		admin.setCreated_at(adminDto.getCreated_at());
 		admin.setUpdate_at(adminDto.getUpdate_at());
-		admin.setRole(Role.ADMIN);
+		admin.setRole(Role.ADMIN);    // to show Admin 
+		
 		Admin saveAdmin = adminService.saveAdmin(admin);
 		
 		return new ResponseEntity<>(saveAdmin, HttpStatus.CREATED);

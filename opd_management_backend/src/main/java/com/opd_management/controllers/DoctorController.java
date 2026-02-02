@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.opd_management.dtos.DoctorDto;
 import com.opd_management.entities.Doctor;
+import com.opd_management.entities.Role;
 import com.opd_management.services.DoctorService;
 
 import jakarta.validation.Valid;
@@ -50,6 +51,7 @@ public class DoctorController {
 			doctor.setStatus(doctorDto.getStatus());
 			doctor.setCreated_at(doctorDto.getCreated_at());
 			doctor.setUpdated_at(doctorDto.getUpdated_at());
+			doctor.setRole(Role.DOCTOR);
 			
 			Doctor saveDoctor = doctorService.saveDoctor(doctor);
 			
@@ -94,7 +96,7 @@ public class DoctorController {
 		
 		doctor.setName(doctorDto.getName());
 		doctor.setEmail(doctorDto.getEmail());
-		doctor.setPassword(doctorDto.getPassword());
+		doctor.setPassword(encoder.encode(doctorDto.getPassword())); // new line
 		doctor.setSpecialization(doctorDto.getSpecialization());
 		doctor.setClinic_name(doctorDto.getClinic_name());
 		doctor.setAddress(doctorDto.getAddress());

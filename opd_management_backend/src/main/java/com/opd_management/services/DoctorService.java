@@ -17,5 +17,8 @@ public interface DoctorService {
 	
 	// to delete specific data using id from doctor
 	void deleteDoctorId(int id);
+	
+	// to exist email id
+	Doctor getDoctorByEmail(String email);
 
 }

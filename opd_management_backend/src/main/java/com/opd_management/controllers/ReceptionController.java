@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.opd_management.dtos.ReceptionDto;
 import com.opd_management.entities.Doctor;
 import com.opd_management.entities.Reception;
+import com.opd_management.entities.Role;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.ReceptionService;
 
@@ -44,6 +45,7 @@ public class ReceptionController {
 		reception.setMobile_no(receptionDto.getMobile_no());
 		reception.setShift(receptionDto.getShift());
 		reception.setPassword(encoder.encode(receptionDto.getPassword()));
+		reception.setRole(Role.RECEPTIONIST);
 		
 		Doctor doctor = doctorService.getDoctorById(receptionDto.getDoctorid());
 		
@@ -91,7 +93,7 @@ public class ReceptionController {
 		reception.setEmail(receptionDto.getEmail());
 		reception.setMobile_no(receptionDto.getMobile_no());
 		reception.setShift(receptionDto.getShift());
-		reception.setPassword(receptionDto.getPassword());
+		reception.setPassword(encoder.encode(receptionDto.getPassword()));
 		
 		Doctor doctor = doctorService.getDoctorById(receptionDto.getDoctorid());
 		

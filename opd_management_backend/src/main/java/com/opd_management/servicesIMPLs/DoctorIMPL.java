@@ -75,4 +75,19 @@ public class DoctorIMPL implements DoctorService {
 		}
 	}
 
+
+	@Override
+	public Doctor getDoctorByEmail(String email) {
+		// TODO Auto-generated method stub
+		try {
+			
+			return doctorRepository.findByEmail(email).orElseThrow(() -> 
+				new ResourseNotFoundException("Doctor not found wiht email: " + email));
+			
+		} catch (Exception e) {
+
+			throw new DataBaseException("Failed to get doctor due to database error");
+		}
+	}
+
 }

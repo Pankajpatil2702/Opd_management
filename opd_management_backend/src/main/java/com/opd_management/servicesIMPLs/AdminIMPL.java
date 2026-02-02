@@ -65,7 +65,14 @@ public class AdminIMPL implements AdminService {
 	@Override
 	public Admin getAdminByEmail(String email) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			
+			return adminRepository.findByEmail(email).orElseThrow(() -> 
+			new ResourseNotFoundException("Admin not found with email: " + email));
+		} catch (Exception e) {
+
+			throw new DataBaseException("Failed to get admin due to database error");              
+		}
 	}
 
 

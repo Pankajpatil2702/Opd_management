@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 
 @Component
-public class JwtAuthEntryPoint implements AuthenticationEntryPoint{
+public class JwtAuthEntryPoint implements AuthenticationEntryPoint{   /// only for missing token show error
 
 	/**
 	 * This method is called is automatically by spring security 

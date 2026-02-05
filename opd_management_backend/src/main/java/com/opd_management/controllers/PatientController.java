@@ -42,7 +42,7 @@ public class PatientController {
 		if(patient == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(patient, HttpStatus.FOUND);
+		return new ResponseEntity<>(patient, HttpStatus.OK);
 	}
 	
 	
@@ -86,7 +86,7 @@ public class PatientController {
 		if(patient == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(patient, HttpStatus.FOUND);
+		return new ResponseEntity<>(patient, HttpStatus.OK);
 	}
 	
 	// Update Specific Data From Patient Table Using "id"
@@ -125,7 +125,7 @@ public class PatientController {
 		if(patients == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(patients, HttpStatus.FOUND);
+		return new ResponseEntity<>(patients, HttpStatus.OK);
 	}
 	
 	

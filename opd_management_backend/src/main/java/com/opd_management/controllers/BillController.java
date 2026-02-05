@@ -68,7 +68,7 @@ public class BillController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(bill , HttpStatus.FOUND);
+		return new ResponseEntity<>(bill , HttpStatus.OK);
 				
 	}
 	
@@ -82,7 +82,7 @@ public class BillController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(bill, HttpStatus.FOUND);
+		return new ResponseEntity<>(bill, HttpStatus.OK);
 	}
 	
 	

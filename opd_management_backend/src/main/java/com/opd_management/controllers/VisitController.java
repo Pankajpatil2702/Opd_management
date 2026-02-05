@@ -104,7 +104,7 @@ public class VisitController {
 			return new ResponseEntity<>(HttpStatus.FOUND);
 		}
 		
-		return new ResponseEntity<>(visit, HttpStatus.FOUND);
+		return new ResponseEntity<>(visit, HttpStatus.OK);
 				
 	}
 	
@@ -118,7 +118,7 @@ public class VisitController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(visit, HttpStatus.FOUND);
+		return new ResponseEntity<>(visit, HttpStatus.OK);
 		
 	}
 	

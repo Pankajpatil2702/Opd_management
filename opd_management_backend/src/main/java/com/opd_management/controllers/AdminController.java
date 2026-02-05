@@ -63,7 +63,7 @@ public class AdminController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(admin , HttpStatus.FOUND);
+		return new ResponseEntity<>(admin , HttpStatus.OK);
 		
 	}
 	
@@ -78,7 +78,7 @@ public class AdminController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(admin, HttpStatus.FOUND);
+		return new ResponseEntity<>(admin, HttpStatus.OK);
 				
 	}
 	

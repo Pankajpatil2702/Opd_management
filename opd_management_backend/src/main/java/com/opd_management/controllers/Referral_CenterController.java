@@ -65,7 +65,7 @@ public class Referral_CenterController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(referral_Center, HttpStatus.FOUND);
+		return new ResponseEntity<>(referral_Center, HttpStatus.OK);
 	}
 	
 	// get specific id from referral_center
@@ -77,7 +77,7 @@ public class Referral_CenterController {
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(referral_Center , HttpStatus.FOUND);
+		return new ResponseEntity<>(referral_Center , HttpStatus.OK);
 	}
 	
 	// update specific id from referral_center

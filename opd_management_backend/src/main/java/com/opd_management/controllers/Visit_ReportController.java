@@ -65,7 +65,7 @@ public class Visit_ReportController {
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(visit_Report, HttpStatus.FOUND);
+		return new ResponseEntity<>(visit_Report, HttpStatus.OK);
 	}
 	
 	
@@ -79,7 +79,7 @@ public class Visit_ReportController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 					
 		}
-		return new ResponseEntity<>(visit_Report, HttpStatus.FOUND);
+		return new ResponseEntity<>(visit_Report, HttpStatus.OK);
 	}
 	
 	// update specific id from visit_report table

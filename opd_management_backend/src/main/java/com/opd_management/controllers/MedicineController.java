@@ -60,7 +60,7 @@ public class MedicineController {
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(medicine , HttpStatus.FOUND);
+		return new ResponseEntity<>(medicine , HttpStatus.OK);
 				
 	}
 	
@@ -75,7 +75,7 @@ public class MedicineController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(medicine , HttpStatus.FOUND);
+		return new ResponseEntity<>(medicine , HttpStatus.OK);
 	}
 	
 	// update specific id from medicine table

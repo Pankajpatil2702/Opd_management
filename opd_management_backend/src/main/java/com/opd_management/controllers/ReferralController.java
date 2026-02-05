@@ -86,7 +86,7 @@ public class ReferralController {
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(referral , HttpStatus.FOUND);
+		return new ResponseEntity<>(referral , HttpStatus.OK);
 				
 		
 	}
@@ -104,7 +104,7 @@ public class ReferralController {
 			
 		}
 		
-		return new ResponseEntity<>(referral , HttpStatus.FOUND);
+		return new ResponseEntity<>(referral , HttpStatus.OK);
 	}
 	
 	// update specific data using data from referral table

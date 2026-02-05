@@ -1,8 +1,6 @@
 package com.opd_management.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;

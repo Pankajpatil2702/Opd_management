@@ -64,7 +64,7 @@ public class ReceptionController {
 		if(reception == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new  ResponseEntity<>(reception , HttpStatus.FOUND);		
+		return new  ResponseEntity<>(reception , HttpStatus.OK);		
 	}
 	
 	// get reception data using id
@@ -78,7 +78,7 @@ public class ReceptionController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(reception , HttpStatus.FOUND);
+		return new ResponseEntity<>(reception , HttpStatus.OK);
 	}
 	
 	@PutMapping("/{id}")

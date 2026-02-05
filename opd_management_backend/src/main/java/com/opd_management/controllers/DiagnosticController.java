@@ -70,7 +70,7 @@ public class DiagnosticController {
 		if(diagnostic == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(diagnostic, HttpStatus.FOUND);
+		return new ResponseEntity<>(diagnostic, HttpStatus.OK);
 		
 	}
 	
@@ -82,7 +82,7 @@ public class DiagnosticController {
 		if(diagnostic == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(diagnostic, HttpStatus.FOUND);
+		return new ResponseEntity<>(diagnostic, HttpStatus.OK);
 	}
 	
 	// Update Specific Data From Diagnostic Table

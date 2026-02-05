@@ -70,7 +70,7 @@ public class Pathology_TestController {
 			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(pathology_Test, HttpStatus.FOUND);
+		return new ResponseEntity<>(pathology_Test, HttpStatus.OK);
 	}
 	
 	// get specific data from pathology_test using id
@@ -83,7 +83,7 @@ public class Pathology_TestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
 		}
-		return new ResponseEntity<>(pathology_Test, HttpStatus.FOUND);
+		return new ResponseEntity<>(pathology_Test, HttpStatus.OK);
 	}
 	
 	// update data from pathology_Test using id

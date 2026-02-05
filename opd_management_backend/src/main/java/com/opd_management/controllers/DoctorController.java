@@ -68,7 +68,7 @@ public class DoctorController {
 			if(doctors == null) {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
-			return new ResponseEntity<>(doctors, HttpStatus.FOUND);
+			return new ResponseEntity<>(doctors, HttpStatus.OK);
 		}
 		catch(Exception e) {
 		
@@ -86,7 +86,7 @@ public class DoctorController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
 		}
-		return new ResponseEntity<>(doctor , HttpStatus.FOUND);
+		return new ResponseEntity<>(doctor , HttpStatus.OK);
 	}
 	
 	@PutMapping("/{id}")

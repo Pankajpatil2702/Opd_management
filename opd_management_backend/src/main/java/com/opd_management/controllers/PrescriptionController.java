@@ -82,7 +82,7 @@ public class PrescriptionController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(prescription, HttpStatus.FOUND);
+		return new ResponseEntity<>(prescription, HttpStatus.OK);
 	}
 	
 	
@@ -95,7 +95,7 @@ public class PrescriptionController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(prescription, HttpStatus.FOUND);
+		return new ResponseEntity<>(prescription, HttpStatus.OK);
 	}
 	
 	

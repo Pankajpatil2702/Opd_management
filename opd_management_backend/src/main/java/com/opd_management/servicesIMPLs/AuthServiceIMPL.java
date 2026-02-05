@@ -104,7 +104,7 @@ public class AuthServiceIMPL implements AuthService {
 	    adminResponce.setName(admin.getName());
 	    adminResponce.setMobileNo(admin.getMobileNo());
 
-	    // 5. Return token, role, and admin data
+	    // 5. Return token, role, and admin datax
 	    return new JwtResponse(token, admin.getRole(), adminResponce);
 	}
 

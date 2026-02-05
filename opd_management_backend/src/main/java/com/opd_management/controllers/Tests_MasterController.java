@@ -65,7 +65,7 @@ public class Tests_MasterController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(tests_Master, HttpStatus.FOUND);
+		return new ResponseEntity<>(tests_Master, HttpStatus.OK);
 	}
 	
 	
@@ -79,7 +79,7 @@ public class Tests_MasterController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
-		return new ResponseEntity<>(tests_Master, HttpStatus.FOUND);
+		return new ResponseEntity<>(tests_Master, HttpStatus.OK);
 	}
 	
 	

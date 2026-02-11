@@ -2,7 +2,6 @@ package com.opd_management.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -26,12 +25,12 @@ public class AdminDto {
 	
 	private String token;
 	
-	@PastOrPresent(message = "Creating date must be past or present")
-	private String created_at;
-	
-	@PastOrPresent
-	(message = "Creating date must be past or present")
-	private String update_at;
+//	@NotNull(message = "Creating date must be past or present")
+//	private LocalDateTime created_at;
+//	
+//	@NotNull
+//	(message = "Creating date must be past or present")
+//	private LocalDateTime update_at;
 
 	public String getName() {
 		return name;
@@ -73,21 +72,21 @@ public class AdminDto {
 		this.token = token;
 	}
 
-	public String getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
-
-	public String getUpdate_at() {
-		return update_at;
-	}
-
-	public void setUpdate_at(String update_at) {
-		this.update_at = update_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
+//
+//	public LocalDateTime getUpdate_at() {
+//		return update_at;
+//	}
+//
+//	public void setUpdate_at(LocalDateTime update_at) {
+//		this.update_at = update_at;
+//	}
 
 	
 }

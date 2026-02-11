@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,8 @@ public class AdminController {
 		admin.setMobileNo(adminDto.getMobileNo());
 		admin.setToken(adminDto.getToken());
 		admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
-		admin.setCreated_at(adminDto.getCreated_at());
-		admin.setUpdate_at(adminDto.getUpdate_at());
+		admin.setCreated_at(LocalDateTime.now());
+		admin.setUpdate_at(LocalDateTime.now());
 		admin.setRole(Role.ADMIN);    // to show Admin 
 		
 		Admin saveAdmin = adminService.saveAdmin(admin);
@@ -98,7 +99,8 @@ public class AdminController {
 			admin.setMobileNo(adminDto.getMobileNo());
 			admin.setToken(adminDto.getToken());
 			admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
-			admin.setCreated_at(adminDto.getCreated_at());
+			admin.setCreated_at(LocalDateTime.now());
+			admin.setUpdate_at(LocalDateTime.now());
 			
 			Admin updateAdmin = adminService.saveAdmin(admin);
 			

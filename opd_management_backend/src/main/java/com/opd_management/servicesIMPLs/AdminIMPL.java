@@ -51,7 +51,7 @@ public class AdminIMPL implements AdminService {
 
 	@Override
 	public void deleteAdmin(int id) {
-		// TODO Auto-generated method stub
+		
 		try {
 			
 			adminRepository.deleteById(id);

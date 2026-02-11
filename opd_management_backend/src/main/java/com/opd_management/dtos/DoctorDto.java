@@ -41,11 +41,11 @@ public class DoctorDto {
 	@NotBlank(message = "Status is required")     
 	private String status;
 	
-	@NotBlank(message = "Created date is required")
-	private String created_at;
-	
-	@NotBlank(message = "Updated date is required")
-	private String updated_at;
+//	@NotNull(message = "Created date is required")
+//	private LocalDateTime created_at;
+//	
+//  	@NotNull(message = "update date is required")
+//	private LocalDateTime updated_at;
 
 	public String getName() {
 		return name;
@@ -135,21 +135,21 @@ public class DoctorDto {
 		this.status = status;
 	}
 
-	public String getCreated_at() {
-		return created_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
+//
+//	public LocalDateTime getUpdated_at() {
+//		return updated_at;
+//	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
-
-	public String getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(String updated_at) {
-		this.updated_at = updated_at;
-	}
+//	public void setUpdated_at(LocalDateTime updated_at) {
+//		this.updated_at = updated_at;
+//	}
 
 	
 	

@@ -17,5 +17,7 @@ public interface Visit_ReportService {
 	
 	// delete specific data using id from visit_report
 	void deleteVisit_ReportId(int id);
+	
+	List<Visit_Report> getVisitReportById(Long visitid);
 
 }

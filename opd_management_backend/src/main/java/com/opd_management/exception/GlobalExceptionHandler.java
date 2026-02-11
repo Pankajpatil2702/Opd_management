@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
 	          );
 	        
 	        // Return errors map with HTTP 400 (Bad Request) status
-	        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+	        return new ResponseEntity<>(errors, HttpStatus.INTERNAL_SERVER_ERROR );
 	    }
 	
 	

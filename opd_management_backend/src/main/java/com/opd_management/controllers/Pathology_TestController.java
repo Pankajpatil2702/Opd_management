@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +45,7 @@ public class Pathology_TestController {
 		pathology_Test.setResult(pathology_TestDto.getResult());
 		pathology_Test.setRemarks(pathology_TestDto.getRemarks());
 		pathology_Test.setReport_file(pathology_TestDto.getReport_file());
-		pathology_Test.setCreated_at(pathology_TestDto.getCreated_at());
+		pathology_Test.setCreated_at(LocalDateTime.now());
 		
 		
 		// to get visit id show data 
@@ -99,7 +100,7 @@ public class Pathology_TestController {
 		pathology_Test.setResult(pathology_TestDto.getResult());
 		pathology_Test.setRemarks(pathology_TestDto.getRemarks());
 		pathology_Test.setReport_file(pathology_TestDto.getReport_file());
-		pathology_Test.setCreated_at(pathology_TestDto.getCreated_at());
+		pathology_Test.setCreated_at(LocalDateTime.now());
 		
 		// to get visit id show data 
 		Visit visit = visitService.getVisitByID(pathology_TestDto.getVisitid());

@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class PrescriptionController {
 		prescription.setDurtion(prescriptionDto.getDurtion());
 		prescription.setInstrucations(prescriptionDto.getInstrucations());
 		prescription.setQuality(prescriptionDto.getQuality());
-		prescription.setCreated_at(prescriptionDto.getCreated_at());
+		prescription.setCreated_at(LocalDateTime.now());
 		prescription.setMorning_dose(prescriptionDto.getMorning_dose());
 		prescription.setAfternoon_dose(prescriptionDto.getAfternoon_dose());
 		prescription.setEvening_dose(prescriptionDto.getAfternoon_dose());
@@ -57,7 +58,7 @@ public class PrescriptionController {
 		prescription.setTotal_quantity(prescriptionDto.getTotal_quantity());
 		prescription.setQuantity_note(prescriptionDto.getQuantity_note());
 		prescription.setDose_qty(prescriptionDto.getDose_qty());
-		prescription.setDose_unit(prescriptionDto.getCreated_at());
+		prescription.setDose_unit(prescriptionDto.getDose_unit());
 		
 		Visit visit = visitService.getVisitByID(prescriptionDto.getVisitid());
 		
@@ -114,7 +115,7 @@ public class PrescriptionController {
 		prescription.setDurtion(prescriptionDto.getDurtion());
 		prescription.setInstrucations(prescriptionDto.getInstrucations());
 		prescription.setQuality(prescriptionDto.getQuality());
-		prescription.setCreated_at(prescriptionDto.getCreated_at());
+		prescription.setCreated_at(LocalDateTime.now());
 		prescription.setMorning_dose(prescriptionDto.getMorning_dose());
 		prescription.setAfternoon_dose(prescriptionDto.getAfternoon_dose());
 		prescription.setEvening_dose(prescriptionDto.getAfternoon_dose());
@@ -122,7 +123,7 @@ public class PrescriptionController {
 		prescription.setTotal_quantity(prescriptionDto.getTotal_quantity());
 		prescription.setQuantity_note(prescriptionDto.getQuantity_note());
 		prescription.setDose_qty(prescriptionDto.getDose_qty());
-		prescription.setDose_unit(prescriptionDto.getCreated_at());
+		prescription.setDose_unit(prescriptionDto.getDose_unit());
 		
 		Visit visit = visitService.getVisitByID(prescriptionDto.getVisitid());
 		

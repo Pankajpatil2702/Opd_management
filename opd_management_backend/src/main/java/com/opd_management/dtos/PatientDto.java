@@ -3,7 +3,6 @@ package com.opd_management.dtos;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 
@@ -48,9 +47,9 @@ public class PatientDto {
 	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String tobacco; // optional fields
 	
-	@PastOrPresent(message = "Date must be past or present")
-	private String created_at;
-	
+//	@NotBlank(message = "Not null")
+//	private LocalDateTime created_at;
+//	
 	
 	// Create Doctor id Separate
 	@NotNull(message = "Id must be required")
@@ -158,14 +157,14 @@ public class PatientDto {
 	}
 
 
-	public String getCreated_at() {
-		return created_at;
-	}
-
-
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
 
 
 	public int getDoctorid() {
@@ -179,5 +178,4 @@ public class PatientDto {
 
 
 	
-
 }

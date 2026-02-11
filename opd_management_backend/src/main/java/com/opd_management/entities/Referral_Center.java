@@ -1,5 +1,7 @@
 package com.opd_management.entities;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -21,7 +23,7 @@ public class Referral_Center {
 	private String type;
 	private String contact_info;
 	private String address;
-	private String created_at;
+	private LocalDateTime created_at;
 	
 	@ManyToOne
 	@JoinColumn(name = "doctorId")
@@ -68,11 +70,11 @@ public class Referral_Center {
 		this.address = address;
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
@@ -84,8 +86,8 @@ public class Referral_Center {
 		this.doctorid = doctorid;
 	}
 
-	public Referral_Center(int id, String name, String type, String contact_info, String address, String created_at,
-			Doctor doctorid) {
+	public Referral_Center(int id, String name, String type, String contact_info, String address,
+			LocalDateTime created_at, Doctor doctorid) {
 		super();
 		this.id = id;
 		this.name = name;

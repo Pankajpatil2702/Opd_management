@@ -1,5 +1,6 @@
 package com.opd_management.dtos;
 
+import java.time.LocalDateTime;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -9,8 +10,8 @@ import jakarta.validation.constraints.Positive;
 //FrontEnd Data Temporary Store   
 public class VisitDto {
 	
-	@NotBlank(message = "Visit date is requires")
-	private String visit_date;
+//	@NotNull(message = "Visit date is required")
+	private LocalDateTime visit_date;
 	
 	@NotBlank(message = "Complaints field is required")
 	private String complaints;
@@ -92,14 +93,14 @@ public class VisitDto {
 	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
 	private String ecg;
 	
-	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private String followup_date;
+	@NotNull(message = "Followup date is required")
+	private LocalDateTime followup_date;
 	
-	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private String created_at;
+
+	private LocalDateTime created_at;
 	
-	@Pattern(regexp = "^(Yes|No)$", message = "Value must be Yes or No")
-	private String updates_at;
+
+	private LocalDateTime updates_at;
 	
 	
 	@NotNull(message = "Id must be required")
@@ -110,12 +111,12 @@ public class VisitDto {
 	@Positive(message = "ID must be positive")
 	private int doctorid;   // IMP
 
-	public String getVisit_date() {
+	public LocalDateTime getVisit_date() {
 		return visit_date;
 	}
 
-	public void setVisit_date(String visit_date) {
-		this.visit_date = visit_date;
+	public void setVisit_date(LocalDateTime visit_date) {
+		this.visit_date = LocalDateTime.now();
 	}
 
 	public String getComplaints() {
@@ -326,28 +327,28 @@ public class VisitDto {
 		this.ecg = ecg;
 	}
 
-	public String getFollowup_date() {
+	public LocalDateTime getFollowup_date() {
 		return followup_date;
 	}
 
-	public void setFollowup_date(String followup_date) {
-		this.followup_date = followup_date;
+	public void setFollowup_date(LocalDateTime followup_date) {
+		this.followup_date = LocalDateTime.now();
 	}
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = LocalDateTime.now();
 	}
 
-	public String getUpdates_at() {
+	public LocalDateTime getUpdates_at() {
 		return updates_at;
 	}
 
-	public void setUpdates_at(String updates_at) {
-		this.updates_at = updates_at;
+	public void setUpdates_at(LocalDateTime updates_at) {
+		this.updates_at = LocalDateTime.now();
 	}
 
 	public int getPatientid() {
@@ -367,5 +368,5 @@ public class VisitDto {
 	}
 
 	
-
+	
 }

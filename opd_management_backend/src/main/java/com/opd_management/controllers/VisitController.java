@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,13 @@ import com.opd_management.dtos.VisitDto;
 import com.opd_management.entities.Doctor;
 import com.opd_management.entities.Patient;
 import com.opd_management.entities.Visit;
+import com.opd_management.entities.Visit_Report;
 import com.opd_management.services.DoctorService;
 import com.opd_management.services.PatientService;
 import com.opd_management.services.VisitService;
+import com.opd_management.services.Visit_ReportService;
 
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 
 @RestController
@@ -80,10 +84,10 @@ public class VisitController {
 		visit.setUpdates_at(visitDto.getUpdates_at());
 		
 		// Patient Id / Info Using Patient Class and methods
-		Patient patient = patientService.getPatientById(visitDto.getDoctorid());
+		Patient patient = patientService.getPatientById(visitDto.getPatientid());
 		
 		// Doctor Id / Info Using Doctor Class and methods
-		Doctor doctor = doctorService.getDoctorById(visitDto.getPatientid());
+		Doctor doctor = doctorService.getDoctorById(visitDto.getDoctorid());
 		
 		visit.setPatientid(patient);
 		visit.setDoctorid(doctor);
@@ -156,8 +160,8 @@ public class VisitController {
 		visit.setHb(visitDto.getHb());
 		visit.setEcg(visitDto.getEcg());
 		visit.setFollowup_date(visitDto.getFollowup_date());
-		visit.setCreated_at(visitDto.getCreated_at());
-		visit.setUpdates_at(visitDto.getUpdates_at());
+		visit.setCreated_at(LocalDateTime.now());
+		visit.setUpdates_at(LocalDateTime.now());
 		
 		// to get patient id for show data
 		Patient patient = patientService.getPatientById(visitDto.getDoctorid());
@@ -187,5 +191,38 @@ public class VisitController {
 		visitService.deleteVisiteId(id);
 		return new ResponseEntity<>(HttpStatus.MOVED_PERMANENTLY);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

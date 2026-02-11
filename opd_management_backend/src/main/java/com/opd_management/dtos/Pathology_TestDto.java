@@ -18,8 +18,8 @@ public class Pathology_TestDto {
 	@NotBlank(message = "report file path is required")
 	private String report_file;
 	
-	@NotBlank(message = "Created date is required")
-	private String created_at;
+//	@NotBlank(message = "Created date is required")
+//	private LocalDateTime created_at;
 	
 	@NotNull(message = "id is required")
 	@Positive(message = "ID must be positive")
@@ -53,13 +53,13 @@ public class Pathology_TestDto {
 		this.report_file = report_file;
 	}
 
-	public String getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
 
 	public int getVisitid() {
 		return visitid;

@@ -10,8 +10,8 @@ public class DiagnosticDto {
 	@NotBlank(message = "Name is required")
 	private String name;
 	
-	@NotBlank(message = "Date is required")
-	private String created_at;
+//	@NotBlank(message = "Date is required")
+//	private LocalDateTime  created_at;
 	
 	
 	@NotNull(message = "Id must be required")
@@ -34,14 +34,14 @@ public class DiagnosticDto {
 	}
 
 
-	public String getCreated_at() {
-		return created_at;
-	}
-
-
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
 
 
 	public int getDoctorid() {
@@ -64,5 +64,6 @@ public class DiagnosticDto {
 	}
 
 
+	
 	
 }

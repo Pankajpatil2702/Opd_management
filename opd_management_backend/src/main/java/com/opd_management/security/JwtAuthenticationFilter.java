@@ -35,9 +35,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -97,7 +94,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 HttpServletResponse.SC_UNAUTHORIZED,
                 message
         );
-
+    	response.resetBuffer();
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json");
 

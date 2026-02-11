@@ -24,8 +24,8 @@ public class Referral_CenterDto {
 	@NotBlank(message = "Address is required")
 	private String address;
 	
-	@NotBlank(message = "Created date is required")
-	private String created_at;
+//	@NotBlank(message = "Created date is required")
+//	private LocalDateTime created_at;
 	
 	
 	@NotNull(message = "Id must be required")
@@ -73,14 +73,14 @@ public class Referral_CenterDto {
 	}
 
 
-	public String getCreated_at() {
-		return created_at;
-	}
-
-
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
 
 
 	public int getDoctorid() {
@@ -94,5 +94,4 @@ public class Referral_CenterDto {
 
 
 	
-
 }

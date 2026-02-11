@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class BillController {
 		bill.setPaid_amount(billDto.getPaid_amount());
 		bill.setTotal_amount(billDto.getTotal_amount());
 		bill.setPending_amount(billDto.getPending_amount());
-		bill.setCreated_at(billDto.getCreated_at());
+		bill.setCreated_at(LocalDateTime.now());
 		
 		// To Visit By id data or show all info
 		Visit visit = visitService.getVisitByID(billDto.getVisitid());
@@ -103,7 +104,7 @@ public class BillController {
 		bill.setPaid_amount(billDto.getPaid_amount());
 		bill.setTotal_amount(billDto.getTotal_amount());
 		bill.setPending_amount(billDto.getPending_amount());
-		bill.setCreated_at(billDto.getCreated_at());
+		bill.setCreated_at(LocalDateTime.now());
 		
 		// To Visit By id data or show all info
  

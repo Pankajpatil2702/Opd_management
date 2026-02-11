@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class ReferralController {
 		 referral.setNote_type(referralDto.getNote_type());
 		 referral.setReason(referralDto.getReason());
 		 referral.setDetalis(referralDto.getDetalis());
-		 referral.setCreated_at(referralDto.getCreated_at());
+		 referral.setCreated_at(LocalDateTime.now());
 		 
 		 Visit visit = visitService.getVisitByID(referralDto.getVisitid());  // get visit data/id for details
 		 referral.setVisitid(visit);
@@ -119,7 +120,7 @@ public class ReferralController {
 		referral.setNote_type(referralDto.getNote_type());
 		 referral.setReason(referralDto.getReason());
 		 referral.setDetalis(referralDto.getDetalis());
-		 referral.setCreated_at(referralDto.getCreated_at());
+		 referral.setCreated_at(LocalDateTime.now());
 		 
 		 Visit visit = visitService.getVisitByID(referralDto.getVisitid());  // get visit data/id for details
 		 referral.setVisitid(visit);

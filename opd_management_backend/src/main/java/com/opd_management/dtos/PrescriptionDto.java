@@ -20,8 +20,8 @@ public class PrescriptionDto {
 	@Min(value = 1, message = "Quantity must be at least 1")
 	private int quality;
 	
-	@NotBlank(message = "Created date is required")
-	private String created_at;
+//	@NotBlank(message = "Created date is required")
+//	private LocalDateTime created_at;
 	
 	@Min(value = 0, message = "Morning dose cannot be negative")
 	private int morning_dose;
@@ -42,7 +42,7 @@ public class PrescriptionDto {
 	private String dose_qty;
 	
 	@NotBlank(message = "Unit is required")
-	private String unit;
+	private String dose_unit;
 	
 	@NotNull(message = "Visit ID is required")
     @Min(value = 1, message = "Visit ID must be valid")
@@ -52,8 +52,6 @@ public class PrescriptionDto {
     @Min(value = 1, message = "Medicine ID must be valid")
 	private int medicineid;
 
-	
-	
 	public String getDosage() {
 		return dosage;
 	}
@@ -86,13 +84,13 @@ public class PrescriptionDto {
 		this.quality = quality;
 	}
 
-	public String getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
-	}
+//	public LocalDateTime getCreated_at() {
+//		return created_at;
+//	}
+//
+//	public void setCreated_at(LocalDateTime created_at) {
+//		this.created_at = created_at;
+//	}
 
 	public int getMorning_dose() {
 		return morning_dose;
@@ -142,12 +140,12 @@ public class PrescriptionDto {
 		this.dose_qty = dose_qty;
 	}
 
-	public String getUnit() {
-		return unit;
+	public String getDose_unit() {
+		return dose_unit;
 	}
 
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setDose_unit(String dose_unit) {
+		this.dose_unit = dose_unit;
 	}
 
 	public int getVisitid() {
@@ -165,6 +163,7 @@ public class PrescriptionDto {
 	public void setMedicineid(int medicineid) {
 		this.medicineid = medicineid;
 	}
+
 	
 	
 }

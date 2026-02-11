@@ -1,5 +1,7 @@
 package com.opd_management.entities;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -21,7 +23,7 @@ public class Prescription {
 	private String durtion;
 	private String instrucations;
 	private int quality;
-	private String created_at;
+	private LocalDateTime created_at;
 	private int morning_dose;
 	private int afternoon_dose;
 	private int evening_dose;
@@ -93,12 +95,12 @@ public class Prescription {
 	}
 
 
-	public String getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
@@ -203,9 +205,10 @@ public class Prescription {
 	}
 
 
-	public Prescription(int id, String dosage, String durtion, String instrucations, int quality, String created_at,
-			int morning_dose, int afternoon_dose, int evening_dose, int duration_days, int total_quantity,
-			String quantity_note, String dose_qty, String dose_unit, Visit visitid, Medicine medicineid) {
+	public Prescription(int id, String dosage, String durtion, String instrucations, int quality,
+			LocalDateTime created_at, int morning_dose, int afternoon_dose, int evening_dose, int duration_days,
+			int total_quantity, String quantity_note, String dose_qty, String dose_unit, Visit visitid,
+			Medicine medicineid) {
 		super();
 		this.id = id;
 		this.dosage = dosage;
@@ -244,4 +247,4 @@ public class Prescription {
 
 
 	
-	}
+}

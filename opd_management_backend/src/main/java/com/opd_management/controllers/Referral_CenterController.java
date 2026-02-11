@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class Referral_CenterController {
 		referral_Center.setType(referral_CenterDto.getType());
 		referral_Center.setContact_info(referral_CenterDto.getContact_info());
 		referral_Center.setAddress(referral_CenterDto.getAddress());
-		referral_Center.setCreated_at(referral_CenterDto.getCreated_at());
+		referral_Center.setCreated_at(LocalDateTime.now());
 		
 		// to get doctor id show data from id
 		Doctor doctor = doctorService.getDoctorById(referral_CenterDto.getDoctorid());
@@ -94,7 +95,7 @@ public class Referral_CenterController {
 		referral_Center.setType(referral_CenterDto.getType());
 		referral_Center.setContact_info(referral_CenterDto.getContact_info());
 		referral_Center.setAddress(referral_CenterDto.getAddress());
-		referral_Center.setCreated_at(referral_CenterDto.getCreated_at());
+		referral_Center.setCreated_at(LocalDateTime.now());
 		
 		// to get doctor id show data from id
 		Doctor doctor = doctorService.getDoctorById(referral_CenterDto.getDoctorid());

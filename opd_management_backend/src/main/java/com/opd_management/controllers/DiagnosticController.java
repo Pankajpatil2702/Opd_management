@@ -1,5 +1,6 @@
-package com.opd_management.controllers;
+  package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class DiagnosticController {
 		
 		Diagnostic diagnostic = new Diagnostic();
 		diagnostic.setName(diagnosticDto.getName());
-		diagnostic.setCreated_at(diagnosticDto.getCreated_at());
+		diagnostic.setCreated_at(LocalDateTime.now());
 		
 		// to get visit id or show info  
 		Visit visit =visitService.getVisitByID(diagnosticDto.getVisitid());
@@ -95,7 +96,7 @@ public class DiagnosticController {
 		}
 		
 		diagnostic.setName(diagnosticDto.getName());
-		diagnostic.setCreated_at(diagnosticDto.getCreated_at());
+		diagnostic.setCreated_at(LocalDateTime.now());
 		
 		// to get visit id or show info
 		Visit visit = visitService.getVisitByID(diagnosticDto.getVisitid());

@@ -62,4 +62,19 @@ public class Visit_ReportIMPL implements Visit_ReportService {
 		}
 	}
 
+	@Override
+	public List<Visit_Report> getVisitReportById(Long visitid) {
+		// TODO Auto-generated method stub
+		try {
+			
+			return visit_ReportRepository.findByVisitid_Id(visitid);
+			
+		} catch (Exception e) {
+			
+			throw new ResourseNotFoundException("Report not found for visit id " + visitid);
+		}
+	}
+
+	
+	
 }

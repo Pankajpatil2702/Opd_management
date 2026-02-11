@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +50,9 @@ public class DoctorController {
 			doctor.setQualification(doctorDto.getQualification());
 			doctor.setToken(doctorDto.getToken());
 			doctor.setStatus(doctorDto.getStatus());
-			doctor.setCreated_at(doctorDto.getCreated_at());
-			doctor.setUpdated_at(doctorDto.getUpdated_at());
+			doctor.setCreated_at(LocalDateTime.now());
+			doctor.setUpdated_at(LocalDateTime.now());
+			
 			doctor.setRole(Role.DOCTOR);
 			
 			Doctor saveDoctor = doctorService.saveDoctor(doctor);
@@ -103,8 +105,8 @@ public class DoctorController {
 		doctor.setMobileNo(doctorDto.getMobileNo());
 		doctor.setToken(doctorDto.getToken());
 		doctor.setStatus(doctorDto.getStatus());
-		doctor.setCreated_at(doctorDto.getCreated_at());
-		doctor.setUpdated_at(doctorDto.getUpdated_at());
+		doctor.setCreated_at(LocalDateTime.now());
+		doctor.setUpdated_at(LocalDateTime.now());
 		
 		Doctor updateDoctor = doctorService.saveDoctor(doctor);
 		

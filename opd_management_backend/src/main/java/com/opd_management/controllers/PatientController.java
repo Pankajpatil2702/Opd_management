@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class PatientController {
 		patient.setSmoking(patientDto.getSmoking());
 		patient.setAlcohol(patientDto.getAlcohol());
 		patient.setTobacco(patientDto.getTobacco());
-		patient.setCreated_at(patientDto.getCreated_at());
+		patient.setCreated_at(LocalDateTime.now());
 		
 		
 		// to get doctor id
@@ -105,7 +106,7 @@ public class PatientController {
 		patient.setSmoking(patientDto.getSmoking());
 		patient.setAlcohol(patientDto.getAlcohol());
 		patient.setTobacco(patientDto.getTobacco());
-		patient.setCreated_at(patientDto.getCreated_at());
+		patient.setCreated_at(LocalDateTime.now());
 		
 		
 		// to get doctor id

@@ -1,5 +1,6 @@
 package com.opd_management.controllers;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class VisitController {
 		
 		Visit visit = new Visit();
 		
-		visit.setVisit_date(visitDto.getVisit_date());
+		visit.setVisitDate(LocalDate.now());
 		visit.setComplaints(visitDto.getComplaints());
 		visit.setDiagnosis(visitDto.getDiagnosis());
 		visit.setAdvice(visitDto.getAdvice());
@@ -132,7 +133,7 @@ public class VisitController {
 		
 		Visit visit = visitService.getVisitByID(id);
 		
-		visit.setVisit_date(visitDto.getVisit_date());
+		visit.setVisitDate(LocalDate.now());
 		visit.setComplaints(visitDto.getComplaints());
 		visit.setDiagnosis(visitDto.getDiagnosis());
 		visit.setAdvice(visitDto.getAdvice());
@@ -193,7 +194,18 @@ public class VisitController {
 	}
 	
 	
-	
+	@GetMapping("/datewise")
+	public ResponseEntity<List<Visit>> getVisitByDateWise(){
+		
+		List<Visit> visit = visitService.findAllByVisit_date(LocalDate.now());
+		
+		if(visit == null || visit.isEmpty()) {
+			    
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<>(visit , HttpStatus.OK);
+	}
 	
 	
 	

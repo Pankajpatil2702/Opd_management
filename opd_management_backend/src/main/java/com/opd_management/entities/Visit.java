@@ -1,5 +1,6 @@
 package com.opd_management.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,7 +20,7 @@ public class Visit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private LocalDateTime visit_date;
+	private LocalDate visitDate;
 	private String complaints;
 	private String diagnosis;
 	private String advice;
@@ -68,12 +69,12 @@ public class Visit {
 		this.id = id;
 	}
 
-	public LocalDateTime getVisit_date() {
-		return visit_date;
+	public LocalDate getVisitDate() {
+		return visitDate;
 	}
 
-	public void setVisit_date(LocalDateTime visit_date) {
-		this.visit_date = LocalDateTime.now();
+	public void setVisitDate(LocalDate visitDate) {
+		this.visitDate = visitDate;
 	}
 
 	public String getComplaints() {
@@ -289,7 +290,7 @@ public class Visit {
 	}
 
 	public void setFollowup_date(LocalDateTime followup_date) {
-		this.followup_date = LocalDateTime.now();
+		this.followup_date = followup_date;
 	}
 
 	public LocalDateTime getCreated_at() {
@@ -297,7 +298,7 @@ public class Visit {
 	}
 
 	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+		this.created_at = created_at;
 	}
 
 	public LocalDateTime getUpdates_at() {
@@ -324,15 +325,16 @@ public class Visit {
 		this.doctorid = doctorid;
 	}
 
-	public Visit(int id, LocalDateTime visit_date, String complaints, String diagnosis, String advice, String bp, String pulse,
-			String saturation, String temperature, String respiration, String sugar, String fasting_sugar,
+	public Visit(int id, LocalDate visitDate, String complaints, String diagnosis, String advice, String bp,
+			String pulse, String saturation, String temperature, String respiration, String sugar, String fasting_sugar,
 			String pp_sugar, String random_sugar, String urea_creatinine, String past_history,
 			String current_medication, String additional_notes, int weight, String edema, String pallor,
-			String jaundice, String cvs, String rs, String pa, String cns, String hb, String ecg, LocalDateTime followup_date,
-			LocalDateTime created_at, LocalDateTime updates_at, Patient patientid, Doctor doctorid) {
+			String jaundice, String cvs, String rs, String pa, String cns, String hb, String ecg,
+			LocalDateTime followup_date, LocalDateTime created_at, LocalDateTime updates_at, Patient patientid,
+			Doctor doctorid) {
 		super();
 		this.id = id;
-		this.visit_date = visit_date;
+		this.visitDate = visitDate;
 		this.complaints = complaints;
 		this.diagnosis = diagnosis;
 		this.advice = advice;
@@ -373,7 +375,7 @@ public class Visit {
 
 	@Override
 	public String toString() {
-		return "Visit [id=" + id + ", visit_date=" + visit_date + ", complaints=" + complaints + ", diagnosis="
+		return "Visit [id=" + id + ", visitDate=" + visitDate + ", complaints=" + complaints + ", diagnosis="
 				+ diagnosis + ", advice=" + advice + ", bp=" + bp + ", pulse=" + pulse + ", saturation=" + saturation
 				+ ", temperature=" + temperature + ", respiration=" + respiration + ", sugar=" + sugar
 				+ ", fasting_sugar=" + fasting_sugar + ", pp_sugar=" + pp_sugar + ", random_sugar=" + random_sugar

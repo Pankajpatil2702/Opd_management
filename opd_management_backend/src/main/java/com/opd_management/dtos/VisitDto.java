@@ -1,5 +1,6 @@
 package com.opd_management.dtos;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -11,7 +12,7 @@ import jakarta.validation.constraints.Positive;
 public class VisitDto {
 	
 //	@NotNull(message = "Visit date is required")
-	private LocalDateTime visit_date;
+	private LocalDate visitDate;
 	
 	@NotBlank(message = "Complaints field is required")
 	private String complaints;
@@ -111,12 +112,12 @@ public class VisitDto {
 	@Positive(message = "ID must be positive")
 	private int doctorid;   // IMP
 
-	public LocalDateTime getVisit_date() {
-		return visit_date;
+	public LocalDate getVisitDate() {
+		return visitDate;
 	}
 
-	public void setVisit_date(LocalDateTime visit_date) {
-		this.visit_date = LocalDateTime.now();
+	public void setVisitDate(LocalDate visitDate) {
+		this.visitDate = visitDate;
 	}
 
 	public String getComplaints() {
@@ -332,7 +333,7 @@ public class VisitDto {
 	}
 
 	public void setFollowup_date(LocalDateTime followup_date) {
-		this.followup_date = LocalDateTime.now();
+		this.followup_date = followup_date;
 	}
 
 	public LocalDateTime getCreated_at() {
@@ -340,7 +341,7 @@ public class VisitDto {
 	}
 
 	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = LocalDateTime.now();
+		this.created_at = created_at;
 	}
 
 	public LocalDateTime getUpdates_at() {
@@ -348,7 +349,7 @@ public class VisitDto {
 	}
 
 	public void setUpdates_at(LocalDateTime updates_at) {
-		this.updates_at = LocalDateTime.now();
+		this.updates_at = updates_at;
 	}
 
 	public int getPatientid() {
@@ -367,6 +368,5 @@ public class VisitDto {
 		this.doctorid = doctorid;
 	}
 
-	
 	
 }

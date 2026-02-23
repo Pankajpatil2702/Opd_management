@@ -1,5 +1,7 @@
 package com.opd_management.servicesIMPLs;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,22 @@ public class VisitIMPL implements VisitService {
 			throw new DataBaseException("Failed to delete visit due to database error");
 		}
 	}
+
+	@Override
+	public List<Visit> findAllByVisit_date(LocalDate visit_date) {
+		
+		try {
+			
+			return visitRepository.findByVisitDate(visit_date);
+		}
+		catch(Exception e) {
+			
+			throw new DataBaseException("Failed to delete visit due to database error");
+		}
+		
+	}
+
+	
+	
 
 }

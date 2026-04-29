@@ -1,5 +1,6 @@
-package com.opd_management.exception;
+ package com.opd_management.exception;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,7 +50,8 @@ public class GlobalExceptionHandler {
 	    // 3. Timestamp when the error occurred
 		ErrorResponse errorResponse = new ErrorResponse(
 				HttpStatus.NOT_FOUND.value(),
-				ex.getMessage()
+				ex.getMessage()//,
+				//LocalDateTime.now()
 			);
 		
 		return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
@@ -78,7 +80,7 @@ public class GlobalExceptionHandler {
 	
 	 // ✅ 4.  Duplicate ResourceEXCEPTION (ALWAYS KEEP AT BOTTOM)
     @ExceptionHandler(DuplicateResourceException.class)
-    public ResponseEntity<ErrorResponse>handleDuplicate(DuplicateResourceException ex){
+    public ResponseEntity<ErrorResponse> handleDuplicate(DuplicateResourceException ex){
     	
     	 // Create a custom error response object
         // It contains:

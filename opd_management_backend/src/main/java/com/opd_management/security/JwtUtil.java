@@ -39,6 +39,7 @@ public class JwtUtil {
 		return Keys.hmacShaKeyFor(SECRET.getBytes());
 	}
 	
+
 	/**
      * Generate JWT token
      *
@@ -64,6 +65,19 @@ public class JwtUtil {
 	}
 	
 	
+	 /**
+     * Parse and validate JWT token
+     * Returns the claims if token is valid
+     */
+	private Jws<Claims>  parseToken(String token){
+		
+		return Jwts.parserBuilder()
+				.setSigningKey(getSigningKey())
+				.build()
+				.parseClaimsJws(token);
+	}
+
+
 	/**
      * Extract email (subject) from JWT token
      *
@@ -115,16 +129,6 @@ public class JwtUtil {
 		
 	}
 	
-	 /**
-     * Parse and validate JWT token
-     * Returns the claims if token is valid
-     */
-	private Jws<Claims>  parseToken(String token){
-		
-		return Jwts.parserBuilder()
-				.setSigningKey(getSigningKey())
-				.build()
-				.parseClaimsJws(token);
-	}
+	
 
 }

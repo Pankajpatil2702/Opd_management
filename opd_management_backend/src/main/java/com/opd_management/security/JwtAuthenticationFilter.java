@@ -80,7 +80,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
            
         } catch (SignatureException e) {
         	sendError(response, "JWT signature invalid");
-            
+                
      }
 //        catch (Exception e) {
 //            handleJwtError(response, "JWT authentication failed");
@@ -96,7 +96,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         );
     	response.resetBuffer();
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.setContentType("application/json");
+        response.setContentType("application/json"); 
 
         new ObjectMapper().writeValue(response.getOutputStream(), error);
     	

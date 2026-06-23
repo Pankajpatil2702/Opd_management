@@ -65,7 +65,7 @@ public class AuthServiceIMPL implements AuthService {
 	    // 3. Map Doctor entity to DoctorResponse DTO
 	    //    (Never return entity directly to client)
 	    DoctorResponce doctorResponce = new DoctorResponce();
-	    doctorResponce.setId(doctor.getId());
+	    doctorResponce.setId(doctor.getId());		
 	    doctorResponce.setName(doctor.getName());
 	    doctorResponce.setEmail(doctor.getEmail());
 	    doctorResponce.setAddress(doctor.getAddress());

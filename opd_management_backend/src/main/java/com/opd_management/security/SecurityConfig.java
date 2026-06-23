@@ -44,7 +44,8 @@ public class SecurityConfig {
 		 					"/auth/login/doctor",
 		 					"/auth/login/admin",
 		 					"/auth/login/reception",
-		 					"/api/reception/regsiter").permitAll()
+		 					"/api/reception/regsiter",
+							"/email/send").permitAll()
 		 			.anyRequest().authenticated()
 		 			)
 		 	.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -55,5 +56,4 @@ public class SecurityConfig {
 	    return http.build();
 	}
 	
-
 }
